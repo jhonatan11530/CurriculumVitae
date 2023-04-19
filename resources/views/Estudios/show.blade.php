@@ -51,7 +51,7 @@
                                     alt="Image not found">
                             </div>
                         </div>
-                        <a href="{{ route('CurriculumVitaeAddSupportStudent.index') }}" class="btn btn-danger">Volver
+                        <a href="{{ route('SoporteEstudio.index') }}" class="btn btn-danger">Volver
                             atraz</a>
                     </div>
                 </div>

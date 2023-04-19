@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SoporteEstudioComplementoModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AddSoporteEstudioCompleController extends Controller
 {
@@ -13,7 +16,8 @@ class AddSoporteEstudioCompleController extends Controller
      */
     public function index()
     {
-        return view('Cv.index');
+        $SoporteEstudioModel = SoporteEstudioComplementoModel::all();
+        return view('Complementos.index', compact('SoporteEstudioModel'));
     }
 
     /**
@@ -23,7 +27,7 @@ class AddSoporteEstudioCompleController extends Controller
      */
     public function create()
     {
-        //
+        return view('Complementos.create');
     }
 
     /**
@@ -34,7 +38,32 @@ class AddSoporteEstudioCompleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'Fecha' => 'required',
+            'Institucion' => 'required',
+            'NombreTitulo' => 'required',
+            'TipoEstudio' => 'required',
+        ]);
+        if ($validator->fails()) {
+            toastr()->error('Error verifica los datos !');
+            return back()->withErrors($validator);
+        } else {
+
+            $foto = $request->file('SoporteEstudio');
+            $fotoImagen = 'storage/SoporteEstudioComplemento' . $request->Nombre . '/' . $foto->getClientOriginalName();
+            Storage::disk('public')->putFileAs('SoporteEstudioComplemento' . $request->Nombre, $request->file('SoporteEstudio'), $foto->getClientOriginalName());
+
+            $SoporteEstudioModel = new SoporteEstudioComplementoModel();
+            $SoporteEstudioModel->Fecha = $request->Fecha;
+            $SoporteEstudioModel->Institucion = $request->Institucion;
+            $SoporteEstudioModel->NombreTitulo = $request->NombreTitulo;
+            $SoporteEstudioModel->TipoEstudio = $request->TipoEstudio;
+            $SoporteEstudioModel->SoporteFisico = $fotoImagen;
+            $SoporteEstudioModel->save();
+
+            toastr()->success('Se Creo el Registro !');
+            return redirect('CurriculumVitaeAddSupportStudentComplement');
+        }
     }
 
     /**
@@ -45,7 +74,8 @@ class AddSoporteEstudioCompleController extends Controller
      */
     public function show($id)
     {
-        //
+        $SoporteEstudioModel = SoporteEstudioComplementoModel::find($id);
+        return view('Complementos.show', compact('SoporteEstudioModel'));
     }
 
     /**
@@ -56,7 +86,8 @@ class AddSoporteEstudioCompleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $SoporteEstudioModel = SoporteEstudioComplementoModel::find($id);
+        return view('Complementos.edit', compact('SoporteEstudioModel'));
     }
 
     /**
@@ -68,7 +99,32 @@ class AddSoporteEstudioCompleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'Fecha' => 'required',
+            'Institucion' => 'required',
+            'NombreTitulo' => 'required',
+            'TipoEstudio' => 'required',
+        ]);
+        if ($validator->fails()) {
+            toastr()->error('Error verifica los datos !');
+            return back()->withErrors($validator);
+        } else {
+
+            $foto = $request->file('SoporteEstudio');
+            $fotoImagen = 'storage/SoporteEstudioComplemento' . $request->Nombre . '/' . $foto->getClientOriginalName();
+            Storage::disk('public')->putFileAs('SoporteEstudioComplemento' . $request->Nombre, $request->file('SoporteEstudio'), $foto->getClientOriginalName());
+
+            $SoporteEstudioModel = SoporteEstudioComplementoModel::find($id);
+            $SoporteEstudioModel->Fecha = $request->Fecha;
+            $SoporteEstudioModel->Institucion = $request->Institucion;
+            $SoporteEstudioModel->NombreTitulo = $request->NombreTitulo;
+            $SoporteEstudioModel->TipoEstudio = $request->TipoEstudio;
+            $SoporteEstudioModel->SoporteFisico = $fotoImagen;
+            $SoporteEstudioModel->update();
+
+            toastr()->success('Se Creo el Registro !');
+            return redirect('CurriculumVitaeAddSupportStudentComplement');
+        }
     }
 
     /**
@@ -79,6 +135,11 @@ class AddSoporteEstudioCompleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $SoporteEstudioModel = SoporteEstudioComplementoModel::find($id);
+        Storage::deleteDirectory('SoporteEstudioComplemento' . $SoporteEstudioModel->Nombre);
+        $SoporteEstudioModel->delete();
+
+        toastr()->error('Se elimino el registro exitosamente !');
+        return redirect('CurriculumVitaeAddSupportStudentComplement');
     }
 }

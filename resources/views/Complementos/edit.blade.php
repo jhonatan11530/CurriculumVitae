@@ -14,7 +14,7 @@
                     <div class="card-body">
                         {!! Form::model($SoporteEstudioModel, [
                             'method' => 'PATCH',
-                            'route' => ['SoporteEstudio.update', $SoporteEstudioModel->id],
+                            'route' => ['SoporteEstudioComplemento.update', $SoporteEstudioModel->id],
                             'files' => true,
                         ]) !!}
                         <div class="row">
@@ -58,8 +58,7 @@
                         <div class="col-sm-12">
                             {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                             {!! Form::close() !!}
-                            <a href="{{ route('SoporteEstudio.index') }}" class="btn btn-danger">Volver
-                                atraz</a>
+                            <a href="{{ route('SoporteEstudioComplemento.index') }}" class="btn btn-danger">volver atrás</a>
                         </div>
                     </div>
                 </div>

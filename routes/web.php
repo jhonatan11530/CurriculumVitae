@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('CurriculumVitae', CurriculumVitaeController::class);
-Route::resource('CurriculumVitaeAddSupportStudent', AddSoportesEstudiosController::class);
-Route::resource('CurriculumVitaeAddSupportStudentComplement', AddSoporteEstudioCompleController::class);
+Route::resource('SoporteEstudio', AddSoportesEstudiosController::class);
+Route::resource('SoporteEstudioComplemento', AddSoporteEstudioCompleController::class);

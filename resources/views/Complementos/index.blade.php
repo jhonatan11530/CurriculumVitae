@@ -6,7 +6,7 @@
         </div>
 
         <div class="ml-md-auto py-2 py-md-0">
-            <a href="{{ route('SoporteEstudio.create') }}" class="btn btn-secondary btn-round">Crear
+            <a href="{{ route('SoporteEstudioComplemento.create') }}" class="btn btn-secondary btn-round">Crear
                 soporte de estudio</a>
         </div>
     </div>
@@ -45,11 +45,11 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item"
-                                                            href="{{ route('SoporteEstudio.show', $Soporte->id) }}">Visualizar</a>
+                                                            href="{{ route('CurriculumVitaeAddSupportStudentComplement.show', $Soporte->id) }}">Visualizar</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('SoporteEstudio.edit', $Soporte->id) }}">Editar</a>
+                                                            href="{{ route('CurriculumVitaeAddSupportStudentComplement.edit', $Soporte->id) }}">Editar</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('SoporteEstudio.destroy', $Soporte->id) }}">Eliminar</a>
+                                                            href="{{ route('CurriculumVitaeAddSupportStudentComplement.destroy', $Soporte->id) }}">Eliminar</a>
                                                     </div>
                                                 </div>
                                             </td>

@@ -66,12 +66,12 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('CurriculumVitaeAddSupportStudent') }}">
+                                        <a href="{{ url('SoporteEstudio') }}">
                                             <span class="sub-item">Adjunto Soportes Estudios</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('CurriculumVitaeAddSupportStudentComplement') }}">
+                                        <a href="{{ url('SoporteEstudioComplemento') }}">
                                             <span class="sub-item">Adjunto Soportes Complementario</span>
                                         </a>
                                     </li>

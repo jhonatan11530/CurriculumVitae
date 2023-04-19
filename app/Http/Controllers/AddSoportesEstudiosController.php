@@ -17,8 +17,8 @@ class AddSoportesEstudiosController extends Controller
      */
     public function index()
     {
-       $SoporteEstudioModel = SoporteEstudioModel::all();
-        return view('Estudios.index',compact('SoporteEstudioModel'));
+        $SoporteEstudioModel = SoporteEstudioModel::all();
+        return view('Estudios.index', compact('SoporteEstudioModel'));
     }
 
     /**
@@ -77,7 +77,7 @@ class AddSoportesEstudiosController extends Controller
     public function show($id)
     {
         $SoporteEstudioModel = SoporteEstudioModel::find($id);
-        return view('Estudios.show',compact('SoporteEstudioModel'));
+        return view('Estudios.show', compact('SoporteEstudioModel'));
     }
 
     /**
@@ -89,7 +89,7 @@ class AddSoportesEstudiosController extends Controller
     public function edit($id)
     {
         $SoporteEstudioModel = SoporteEstudioModel::find($id);
-        return view('Estudios.edit',compact('SoporteEstudioModel'));
+        return view('Estudios.edit', compact('SoporteEstudioModel'));
     }
 
     /**

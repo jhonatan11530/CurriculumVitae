@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <div class="card full-height">
                     <div class="card-body">
-                        {!! Form::open(['url' => 'SoporteEstudio', 'files' => true]) !!}
+                        {!! Form::open(['url' => 'SoporteEstudioComplemento', 'files' => true]) !!}
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label>Fecha Titulo</label><span style="color: red">*</span>
@@ -47,8 +47,7 @@
                         <div class="col-sm-12">
                             {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                             {!! Form::close() !!}
-                            <a href="{{ route('SoporteEstudio.index') }}" class="btn btn-danger">Volver
-                                atraz</a>
+                            <a href="{{ route('SoporteEstudioComplemento.index') }}" class="btn btn-danger">volver atrás</a>
                         </div>
                     </div>
                 </div>

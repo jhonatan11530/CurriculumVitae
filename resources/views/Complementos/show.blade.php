@@ -12,11 +12,6 @@
             <div class="col-md-12">
                 <div class="card full-height">
                     <div class="card-body">
-                        {!! Form::model($SoporteEstudioModel, [
-                            'method' => 'PATCH',
-                            'route' => ['SoporteEstudio.update', $SoporteEstudioModel->id],
-                            'files' => true,
-                        ]) !!}
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label>Fecha Titulo</label><span style="color: red">*</span>
@@ -25,10 +20,6 @@
                             <div class="col-sm-6 form-group">
                                 <label>Institucion / Universidad</label><span style="color: red">*</span>
                                 {!! Form::text('Institucion', $SoporteEstudioModel->Institucion, ['class' => 'form-control']) !!}
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <label>Adjuntar Soporte</label><span style="color: red">*</span>
-                                {!! Form::file('SoporteEstudio', ['class' => 'form-control', 'accept' => 'image/png, image/gif, image/jpeg']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Nombre Titulo</label><span style="color: red">*</span>
@@ -54,13 +45,13 @@
                                         Curso Complementario</option>
                                 </select>
                             </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Adjuntar Soporte</label><span style="color: red">*</span>
+                                <img src="{{ asset($SoporteEstudioModel->SoporteFisico) }}" height="300" width="300"
+                                    alt="Image not found">
+                            </div>
                         </div>
-                        <div class="col-sm-12">
-                            {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
-                            {!! Form::close() !!}
-                            <a href="{{ route('SoporteEstudio.index') }}" class="btn btn-danger">Volver
-                                atraz</a>
-                        </div>
+                        <a href="{{ route('SoporteEstudioComplemento.index') }}" class="btn btn-danger">volver atrás</a>
                     </div>
                 </div>
             </div>
