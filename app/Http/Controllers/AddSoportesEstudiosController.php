@@ -39,7 +39,6 @@ class AddSoportesEstudiosController extends Controller
      */
     public function store(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'Fecha' => 'required',
             'Institucion' => 'required',
@@ -52,8 +51,8 @@ class AddSoportesEstudiosController extends Controller
         } else {
 
             $foto = $request->file('SoporteEstudio');
-            $fotoImagen = 'storage/SoporteEstudio' . $request->Nombre . '/' . $foto->getClientOriginalName();
-            Storage::disk('public')->putFileAs('SoporteEstudio' . $request->Nombre, $request->file('SoporteEstudio'), $foto->getClientOriginalName());
+            $fotoImagen = 'storage/SoporteEstudio-' . $request->Institucion . '-' . $request->Fecha . '/' . $foto->getClientOriginalName();
+            Storage::disk('public')->putFileAs('SoporteEstudio-' . $request->Institucion . '-' . $request->Fecha, $request->file('SoporteEstudio'), $foto->getClientOriginalName());
 
             $SoporteEstudioModel = new SoporteEstudioModel();
             $SoporteEstudioModel->Fecha = $request->Fecha;
@@ -64,7 +63,7 @@ class AddSoportesEstudiosController extends Controller
             $SoporteEstudioModel->save();
 
             toastr()->success('Se Creo el Registro !');
-            return redirect('CurriculumVitaeAddSupportStudent');
+            return redirect('SoporteEstudio');
         }
     }
 
@@ -113,10 +112,11 @@ class AddSoportesEstudiosController extends Controller
         } else {
 
             $foto = $request->file('SoporteEstudio');
-            $fotoImagen = 'storage/SoporteEstudio' . $request->Nombre . '/' . $foto->getClientOriginalName();
-            Storage::disk('public')->putFileAs('SoporteEstudio' . $request->Nombre, $request->file('SoporteEstudio'), $foto->getClientOriginalName());
+            $fotoImagen = 'storage/SoporteEstudio-' . $request->Institucion . '-' . $request->Fecha . '/' . $foto->getClientOriginalName();
+            Storage::disk('public')->putFileAs('SoporteEstudio-' . $request->Institucion . '-' . $request->Fecha, $request->file('SoporteEstudio'), $foto->getClientOriginalName());
 
             $SoporteEstudioModel = SoporteEstudioModel::find($id);
+            Storage::delete($SoporteEstudioModel->SoporteFisico);
             $SoporteEstudioModel->Fecha = $request->Fecha;
             $SoporteEstudioModel->Institucion = $request->Institucion;
             $SoporteEstudioModel->NombreTitulo = $request->NombreTitulo;
@@ -125,7 +125,7 @@ class AddSoportesEstudiosController extends Controller
             $SoporteEstudioModel->update();
 
             toastr()->success('Se Creo el Registro !');
-            return redirect('CurriculumVitaeAddSupportStudent');
+            return redirect('SoporteEstudio');
         }
     }
 
@@ -138,10 +138,10 @@ class AddSoportesEstudiosController extends Controller
     public function destroy($id)
     {
         $SoporteEstudioModel = SoporteEstudioModel::find($id);
-        Storage::deleteDirectory('SoporteEstudio' . $SoporteEstudioModel->Nombre);
+        Storage::deleteDirectory('SoporteEstudio-' . $SoporteEstudioModel->Institucion . '-' . $SoporteEstudioModel->Fecha);
         $SoporteEstudioModel->delete();
 
         toastr()->error('Se elimino el registro exitosamente !');
-        return redirect('CurriculumVitaeAddSupportStudent');
+        return redirect('SoporteEstudio');
     }
 }

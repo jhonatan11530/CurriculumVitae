@@ -2,7 +2,7 @@
 @section('banner')
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
         <div>
-            <h2 class="text-white pb-2 fw-bold">Modulo para crear archivos de estudios</h2>
+            <h2 class="text-white pb-2 fw-bold">Modulo para crear archivos de estudios complementario</h2>
         </div>
 
         <div class="ml-md-auto py-2 py-md-0">
@@ -45,11 +45,11 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item"
-                                                            href="{{ route('CurriculumVitaeAddSupportStudentComplement.show', $Soporte->id) }}">Visualizar</a>
+                                                            href="{{ route('SoporteEstudioComplemento.show', $Soporte->id) }}">Visualizar</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('CurriculumVitaeAddSupportStudentComplement.edit', $Soporte->id) }}">Editar</a>
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('CurriculumVitaeAddSupportStudentComplement.destroy', $Soporte->id) }}">Eliminar</a>
+                                                            href="{{ route('SoporteEstudioComplemento.edit', $Soporte->id) }}">Editar</a>
+                                                        <a class="dropdown-item"data-toggle="modal" data-target="#eliminar"
+                                                            href="#">Eliminar</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -63,4 +63,27 @@
             </div>
         </div>
     </div>
+    @isset($Soporte)
+        <div class="modal fade" id="eliminar">
+            <div class="modal-dialog text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">SEGURO QUE DESEA ELIMINAR ?</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fas fa-archive fa-10x" style="color:rgb(255, 52, 52)"></i>
+                    </div>
+                    <div class="modal-footer">
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['SoporteEstudioComplemento.destroy', $Soporte->id]]) !!}
+                        {!! Form::submit('Eliminar', ['class' => 'btn btn-primary mt-3']) !!}
+                        <button type="button" class="btn btn-danger mt-3" data-dismiss="modal">Atras</button>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endisset
 @endsection

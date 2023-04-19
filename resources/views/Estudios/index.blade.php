@@ -48,8 +48,8 @@
                                                             href="{{ route('SoporteEstudio.show', $Soporte->id) }}">Visualizar</a>
                                                         <a class="dropdown-item"
                                                             href="{{ route('SoporteEstudio.edit', $Soporte->id) }}">Editar</a>
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('SoporteEstudio.destroy', $Soporte->id) }}">Eliminar</a>
+                                                        <a class="dropdown-item"data-toggle="modal" data-target="#eliminar"
+                                                            href="#">Eliminar</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -63,4 +63,27 @@
             </div>
         </div>
     </div>
+    @isset($Soporte)
+        <div class="modal fade" id="eliminar">
+            <div class="modal-dialog text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">SEGURO QUE DESEA ELIMINAR ?</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fas fa-archive fa-10x" style="color:rgb(255, 52, 52)"></i>
+                    </div>
+                    <div class="modal-footer">
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['SoporteEstudio.destroy', $Soporte->id]]) !!}
+                        {!! Form::submit('Eliminar', ['class' => 'btn btn-primary mt-3']) !!}
+                        <button type="button" class="btn btn-danger mt-3" data-dismiss="modal">Atras</button>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endisset
 @endsection

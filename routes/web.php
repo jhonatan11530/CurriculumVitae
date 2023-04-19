@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ Route::get('/', function () {
 Route::resource('CurriculumVitae', CurriculumVitaeController::class);
 Route::resource('SoporteEstudio', AddSoportesEstudiosController::class);
 Route::resource('SoporteEstudioComplemento', AddSoporteEstudioCompleController::class);
+
+Route::get('pdf/show/', [ExportController::class, 'ShowPdf'])->name('hoja.vida.show.pdf');
+Route::get('pdf/export/', [ExportController::class, 'PdfExport'])->name('hoja.vida.pdf.export');
+

@@ -16,23 +16,23 @@
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label>Fecha Titulo</label><span style="color: red">*</span>
-                                {!! Form::date('Fecha', '', ['class' => 'form-control']) !!}
+                                {!! Form::date('Fecha', date('Y-m-d'), ['class' => 'form-control','required']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Institucion / Universidad</label><span style="color: red">*</span>
-                                {!! Form::text('Institucion', '', ['class' => 'form-control']) !!}
+                                {!! Form::text('Institucion', '', ['class' => 'form-control','required']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Adjuntar Soporte</label><span style="color: red">*</span>
-                                {!! Form::file('SoporteEstudio', ['class' => 'form-control', 'accept' => 'image/png, image/gif, image/jpeg']) !!}
+                                {!! Form::file('SoporteEstudio', ['class' => 'form-control', 'accept' => 'image/png, image/gif, image/jpeg','required']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Nombre Titulo</label><span style="color: red">*</span>
-                                {!! Form::text('NombreTitulo', '', ['class' => 'form-control']) !!}
+                                {!! Form::text('NombreTitulo', '', ['class' => 'form-control','required']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Seleccione el tipo de Estudio</label><span style="color: red">*</span>
-                                <select name="TipoEstudio" class="form-control">
+                                <select name="TipoEstudio" class="form-control" required>
                                     <option value="" selected disabled>Seleccione el estudio</option>
                                     <option value="Bachillerato">Bachillerato</option>
                                     <option value="Tecnico">Tecnico</option>

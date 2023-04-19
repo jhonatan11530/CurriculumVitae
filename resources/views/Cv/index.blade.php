@@ -40,10 +40,8 @@
                                                     Acciones
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#show"
-                                                        href="#">Visualizar</a>
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#editar"
-                                                        href="#">Exportar</a>
+                                                    <a class="dropdown-item" href="{{ route('hoja.vida.show.pdf') }}" target="_blank">Visualizar</a>
+                                                    <a class="dropdown-item" href="{{ route('hoja.vida.pdf.export') }}">Exportar</a>
                                                 </div>
                                             </div>
                                         </td>

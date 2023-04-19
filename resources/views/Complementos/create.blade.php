@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label>Fecha Titulo</label><span style="color: red">*</span>
-                                {!! Form::date('Fecha', '', ['class' => 'form-control']) !!}
+                                {!! Form::date('Fecha', date('Y-m-d'), ['class' => 'form-control']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Institucion / Universidad</label><span style="color: red">*</span>
