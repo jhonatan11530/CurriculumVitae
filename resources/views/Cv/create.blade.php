@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label>Nombre Completo</label><span style="color: red">*</span>
-                                {!! Form::text('Nombre', 'Jhonatan fernandez muñoz', ['class' => 'form-control']) !!}
+                                {!! Form::text('Nombre', 'Jhonatan fernandez muñoz', ['class' => 'form-control', 'readonly']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Adjuntar Foto</label><span style="color: red">*</span>
@@ -24,44 +24,42 @@
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Cargo Asipirante</label><span style="color: red">*</span>
-                                {!! Form::text('Cargo', '', ['class' => 'form-control']) !!}
+                                <select name="Cargo" class="form-control js-multiple">
+                                    <option value="" disabled>Seleccione el Cargo</option>
+                                    @foreach ($Cargos as $program)
+                                        <option value="{{ $program->nombre }}">{{ $program->nombre }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="col-sm-3 form-group">
+                            <div class="col-sm-6 form-group">
                                 <label>Seleccione el Idioma</label><span style="color: red">*</span>
-                                {!! Form::select(
-                                    'Idioma',
-                                    ['Seleccione una opcion' => 'Seleccione una opcion', 'Español' => 'Español', 'Ingles' => 'Ingles'],
-                                    'Seleccione una opcion',
-                                    ['class' => 'form-control'],
-                                ) !!}
-                            </div>
-                            <div class="col-sm-3 form-group">
-                                <label>Seleccione la plantilla del CV</label><span style="color: red">*</span>
-                                <select name="plantilla" class="form-control" >
-                                    <option value="" selected disabled>Seleccione el cargo</option>
+                                <select name="Idioma" class="form-control">
+                                    <option value="" selected disabled>Seleccione una opcion</option>
+                                    <option value="Español">Español</option>
+                                    <option value="Ingles">Ingles</option>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Pais</label><span style="color: red">*</span>
-                                <select name="PaisDatoPrincipal" class="form-control" id="country" >
+                                <select name="PaisDatoPrincipal" class="form-control" id="country">
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Departamento</label><span style="color: red">*</span>
-                                <select name="DepartamentoDatoPrincipal" class="form-control" id="estado" >
+                                <select name="DepartamentoDatoPrincipal" class="form-control" id="estado">
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Ciudad</label><span style="color: red">*</span>
-                                <select name="CiudadDatoPrincipal" class="form-control" id="ciudad" >
+                                <select name="CiudadDatoPrincipal" class="form-control" id="ciudad">
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="dropdown-divider"></div>
+                            </div>
                             <div class="col-sm-12 form-group">
                                 <h2 class="text-center">DATOS DE CONTACTO</h2>
                             </div>
@@ -77,24 +75,24 @@
                                 <label>Correo electronico</label><span style="color: red">*</span>
                                 {!! Form::email('Correo', '', ['class' => 'form-control']) !!}
                             </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="dropdown-divider"></div>
+                            </div>
                             <div class="col-sm-12 form-group">
                                 <h2 class="text-center">HABILIDADES O LENGUAJES</h2>
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label>Habilidades</label><span style="color: red">*</span>
-                                <select name="Habilidades" class="form-control js-multiple" name="states[]" multiple
-                                    >
-                                    <option value="" disabled>Seleccione el cargo</option>
-                                    <option value="">C#</option>
-                                    <option value="">C++</option>
+                                <select name="Habilidades[]" class="form-control js-multiple" multiple>
+                                    <option value="" disabled>Seleccione el lenguaje de programacion</option>
+                                    @foreach ($Languajes as $program)
+                                        <option value="{{ $program->nombre }}">{{ $program->nombre }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="dropdown-divider"></div>
+                            </div>
                             <div class="col-sm-12 form-group">
                                 <h2 class="text-center">INFORMACION PROFESIONAL</h2>
                             </div>
@@ -102,9 +100,9 @@
                                 <label>Perfil Profesional</label><span style="color: red">*</span>
                                 {!! Form::textarea('PerfilProfesional', '', ['class' => 'form-control']) !!}
                             </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="dropdown-divider"></div>
+                            </div>
                             <div class="col-sm-12 form-group">
                                 <h2 class="text-center">INFORMACION SOBRE MI</h2>
                             </div>
@@ -113,249 +111,250 @@
                                 {!! Form::textarea('SobreMi', '', ['class' => 'form-control']) !!}
                             </div>
                         </div>
+                        <!---
 
-
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <h2 class="text-center">REFERENCIAS PERSONALES</h2>
-                                <a class="btn btn-primary text-white" onclick="ReferencePerson()">Añadir Referencia</a>
-                            </div>
-                        </div>
-                        <div class="card text-white bg-primary">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-12 form-group">
-                                        <h2 class="text-center">REFERENCIAS #1</h2>
-                                    </div>
-                                    <div class="col-sm-4 form-group">
-                                        <label class="text-white">Nombre Referencia</label><span
-                                            style="color: red">*</span>
-                                        {!! Form::text('ReferenciaPersonal[]', '', ['class' => 'form-control']) !!}
-                                    </div>
-                                    <div class="col-sm-4 form-group">
-                                        <label class="text-white">Nombre del Cargo Referencia</label><span
-                                            style="color: red">*</span>
-                                        {!! Form::text('ReferenciaPersonal[]', '', ['class' => 'form-control']) !!}
-                                    </div>
-                                    <div class="col-sm-4 form-group">
-                                        <label class="text-white">Telefono Referencia</label><span
-                                            style="color: red">*</span>
-                                        {!! Form::number('ReferenciaPersonal[]', '', ['class' => 'form-control', 'min' => '0']) !!}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="Experience"></div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <h2 class="text-center">EXPERIENCIA LABORAL</h2>
-                                <a class="btn btn-primary text-white" onclick="ReferenceJosb()">Añadir Experiencia</a>
-                            </div>
-                            <div class="card text-white bg-primary">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12 form-group">
-                                            <h2 class="text-center">EXPERIENCIA #1</h2>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">nombre empresa</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0']) !!}
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">fecha ingreso</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">fecha salida</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">cargo en la empresa</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0']) !!}
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="text-white">Pais</label><span style="color: red">*</span>
-                                            <select name="ReferenciaLaboral[]" class="form-control" id="country1" >
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="text-white">Departamento</label><span
-                                                style="color: red">*</span>
-                                            <select name="ReferenciaLaboral[]" class="form-control" id="estado1"
-                                                >
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-2 form-group">
-                                            <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                            <select name="ReferenciaLaboral[]" class="form-control" id="ciudad1" >
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">Tareas</label><span style="color: red">*</span>
-                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">Funciones</label><span style="color: red">*</span>
-                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">Habilidades Usadas</label><span
-                                                style="color: red">*</span>
-                                            <select name="ReferenciaLaboral[]" class="form-control js-multiple"
-                                                multiple >
-                                                <option value="" disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="Experiencia"></div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <h2 class="text-center">EDUCACION PRINCIPAL</h2>
-                                <a class="btn btn-primary text-white" onclick="Education()">Añadir Educacion</a>
-                            </div>
-                            <div class="card text-white bg-primary">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12 form-group">
-                                            <h2 class="text-center">EDUCACION #1</h2>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">Año del Estudio</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::date('Education[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="text-white">Pais</label><span style="color: red">*</span>
-                                            <select name="Education[]" class="form-control" id="country2" >
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="text-white">Departamento</label><span
-                                                style="color: red">*</span>
-                                            <select name="Education[]" class="form-control" id="estado2"
-                                                >
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-2 form-group">
-                                            <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                            <select name="Education[]" class="form-control" id="ciudad2" >
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label class="text-white">Nombre Titulo</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::text('Education[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label class="text-white">Institucion / Universidad</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::text('Education[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="Education"></div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <h2 class="text-center">EDUCACION COMPLEMENTARIA</h2>
-                                <a class="btn btn-primary text-white" onclick="EducationComplemente()">Añadir Educacion</a>
-                            </div>
-                            <div class="card text-white bg-primary">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12 form-group">
-                                            <h2 class="text-center">EDUCACION COMPLEMENTARIA #1</h2>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="text-white">Año del Estudio</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::date('EducationComple[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="text-white">Pais</label><span style="color: red">*</span>
-                                            <select name="EducationComple[]" class="form-control" id="country3">
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="text-white">Departamento</label><span
-                                                style="color: red">*</span>
-                                            <select name="EducationComple[]" class="form-control" id="estado3">
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-2 form-group">
-                                            <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                            <select name="EducationComple[]" class="form-control" id="ciudad3">
-                                                <option value="" selected disabled>Seleccione el cargo</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label class="text-white">Nombre Titulo</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::text('EducationComple[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="col-sm-6 form-group">
-                                            <label class="text-white">Institucion / Universidad</label><span
-                                                style="color: red">*</span>
-                                            {!! Form::text('EducationComple[]', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="EducationComple"></div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <h2 class="text-center">IDIOMAS QUE MANEJA</h2>
-                                <a class="btn btn-primary text-white" onclick="Languajes()">Añadir Idiomas</a>
-                            </div>
-                        </div>
-                        <div class="card text-white bg-primary">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-12 form-group">
-                                        <h2 class="text-center">IDIOMAS #1</h2>
-                                    </div>
-                                    <div class="col-sm-6 form-group">
-                                        <label class="text-white">Idioma</label>
-                                        <select name="Idioma[]" class="form-control">
-                                            <option value="" selected disabled>Seleccione Idioma</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-6 form-group">
-                                        <label class="text-white">Nivel Idioma</label>
-                                        <select name="Idioma[]" class="form-control">
-                                            <option value="" selected disabled>Seleccione Idioma</option>
-                                            <option value="Basico">Basico</option>
-                                            <option value="Intermedio">Intermedio</option>
-                                            <option value="Avanzado">Avanzado</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="Languajes"></div>
-                        {!! Form::submit('Guardar', ['class' => 'btn btn-danger']) !!}
+                                                        <div class="dropdown-divider"></div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 form-group">
+                                                                <h2 class="text-center">REFERENCIAS PERSONALES</h2>
+                                                                <a class="btn btn-primary text-white" onclick="ReferencePerson()">Añadir Referencia</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card text-white bg-primary">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 form-group">
+                                                                        <h2 class="text-center">REFERENCIAS #1</h2>
+                                                                    </div>
+                                                                    <div class="col-sm-4 form-group">
+                                                                        <label class="text-white">Nombre Referencia</label><span
+                                                                            style="color: red">*</span>
+                                                                        {!! Form::text('ReferenciaPersonal[]', '', ['class' => 'form-control']) !!}
+                                                                    </div>
+                                                                    <div class="col-sm-4 form-group">
+                                                                        <label class="text-white">Nombre del Cargo Referencia</label><span
+                                                                            style="color: red">*</span>
+                                                                        {!! Form::text('ReferenciaPersonal[]', '', ['class' => 'form-control']) !!}
+                                                                    </div>
+                                                                    <div class="col-sm-4 form-group">
+                                                                        <label class="text-white">Telefono Referencia</label><span
+                                                                            style="color: red">*</span>
+                                                                        {!! Form::number('ReferenciaPersonal[]', '', ['class' => 'form-control', 'min' => '0']) !!}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="Experience"></div>
+                                                        <div class="dropdown-divider"></div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 form-group">
+                                                                <h2 class="text-center">EXPERIENCIA LABORAL</h2>
+                                                                <a class="btn btn-primary text-white" onclick="ReferenceJosb()">Añadir Experiencia</a>
+                                                            </div>
+                                                            <div class="card text-white bg-primary">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 form-group">
+                                                                            <h2 class="text-center">EXPERIENCIA #1</h2>
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">nombre empresa</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">fecha ingreso</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">fecha salida</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">cargo en la empresa</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-3 form-group">
+                                                                            <label class="text-white">Pais</label><span style="color: red">*</span>
+                                                                            <select name="ReferenciaLaboral[]" class="form-control" id="country1" >
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-3 form-group">
+                                                                            <label class="text-white">Departamento</label><span
+                                                                                style="color: red">*</span>
+                                                                            <select name="ReferenciaLaboral[]" class="form-control" id="estado1"
+                                                                                >
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-2 form-group">
+                                                                            <label class="text-white">Ciudad</label><span style="color: red">*</span>
+                                                                            <select name="ReferenciaLaboral[]" class="form-control" id="ciudad1" >
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">Tareas</label><span style="color: red">*</span>
+                                                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">Funciones</label><span style="color: red">*</span>
+                                                                            {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">Habilidades Usadas</label><span
+                                                                                style="color: red">*</span>
+                                                                            <select name="ReferenciaLaboral[]" class="form-control js-multiple"
+                                                                                multiple >
+                                                                                <option value="" disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="Experiencia"></div>
+                                                        </div>
+                                                        <div class="dropdown-divider"></div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 form-group">
+                                                                <h2 class="text-center">EDUCACION PRINCIPAL</h2>
+                                                                <a class="btn btn-primary text-white" onclick="Education()">Añadir Educacion</a>
+                                                            </div>
+                                                            <div class="card text-white bg-primary">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 form-group">
+                                                                            <h2 class="text-center">EDUCACION #1</h2>
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">Año del Estudio</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::date('Education[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-3 form-group">
+                                                                            <label class="text-white">Pais</label><span style="color: red">*</span>
+                                                                            <select name="Education[]" class="form-control" id="country2" >
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-3 form-group">
+                                                                            <label class="text-white">Departamento</label><span
+                                                                                style="color: red">*</span>
+                                                                            <select name="Education[]" class="form-control" id="estado2"
+                                                                                >
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-2 form-group">
+                                                                            <label class="text-white">Ciudad</label><span style="color: red">*</span>
+                                                                            <select name="Education[]" class="form-control" id="ciudad2" >
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-6 form-group">
+                                                                            <label class="text-white">Nombre Titulo</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::text('Education[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-6 form-group">
+                                                                            <label class="text-white">Institucion / Universidad</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::text('Education[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="Education"></div>
+                                                        </div>
+                                                        <div class="dropdown-divider"></div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 form-group">
+                                                                <h2 class="text-center">EDUCACION COMPLEMENTARIA</h2>
+                                                                <a class="btn btn-primary text-white" onclick="EducationComplemente()">Añadir Educacion</a>
+                                                            </div>
+                                                            <div class="card text-white bg-primary">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 form-group">
+                                                                            <h2 class="text-center">EDUCACION COMPLEMENTARIA #1</h2>
+                                                                        </div>
+                                                                        <div class="col-sm-4 form-group">
+                                                                            <label class="text-white">Año del Estudio</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::date('EducationComple[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-3 form-group">
+                                                                            <label class="text-white">Pais</label><span style="color: red">*</span>
+                                                                            <select name="EducationComple[]" class="form-control" id="country3">
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-3 form-group">
+                                                                            <label class="text-white">Departamento</label><span
+                                                                                style="color: red">*</span>
+                                                                            <select name="EducationComple[]" class="form-control" id="estado3">
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-2 form-group">
+                                                                            <label class="text-white">Ciudad</label><span style="color: red">*</span>
+                                                                            <select name="EducationComple[]" class="form-control" id="ciudad3">
+                                                                                <option value="" selected disabled>Seleccione el cargo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-6 form-group">
+                                                                            <label class="text-white">Nombre Titulo</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::text('EducationComple[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                        <div class="col-sm-6 form-group">
+                                                                            <label class="text-white">Institucion / Universidad</label><span
+                                                                                style="color: red">*</span>
+                                                                            {!! Form::text('EducationComple[]', '', ['class' => 'form-control']) !!}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="EducationComple"></div>
+                                                        </div>
+                                                        <div class="dropdown-divider"></div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 form-group">
+                                                                <h2 class="text-center">IDIOMAS QUE MANEJA</h2>
+                                                                <a class="btn btn-primary text-white" onclick="Languajes()">Añadir Idiomas</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card text-white bg-primary">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 form-group">
+                                                                        <h2 class="text-center">IDIOMAS #1</h2>
+                                                                    </div>
+                                                                    <div class="col-sm-6 form-group">
+                                                                        <label class="text-white">Idioma</label>
+                                                                        <select name="Idioma[]" class="form-control">
+                                                                            <option value="" selected disabled>Seleccione Idioma</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-6 form-group">
+                                                                        <label class="text-white">Nivel Idioma</label>
+                                                                        <select name="Idioma[]" class="form-control">
+                                                                            <option value="" selected disabled>Seleccione Idioma</option>
+                                                                            <option value="Basico">Basico</option>
+                                                                            <option value="Intermedio">Intermedio</option>
+                                                                            <option value="Avanzado">Avanzado</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="Languajes"></div>
+                                                         --->
+                        {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>

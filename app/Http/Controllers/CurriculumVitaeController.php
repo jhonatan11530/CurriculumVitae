@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cargos;
+use App\Models\HojaVida;
+use App\Models\languajes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -15,7 +18,8 @@ class CurriculumVitaeController extends Controller
      */
     public function index()
     {
-        return view('Cv.index');
+        $HojaVida = HojaVida::all();
+        return view('Cv.index',compact('HojaVida'));
     }
 
     /**
@@ -25,7 +29,9 @@ class CurriculumVitaeController extends Controller
      */
     public function create()
     {
-        return view('Cv.create');
+        $Languajes = languajes::all();
+        $Cargos = Cargos::all();
+        return view('Cv.create', compact('Languajes', 'Cargos'));
     }
 
     /**
@@ -36,7 +42,7 @@ class CurriculumVitaeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $validator = Validator::make($request->all(), [
             'Nombre' => 'required',
             'Cargo' => 'required',
@@ -46,31 +52,33 @@ class CurriculumVitaeController extends Controller
             'Correo' => 'required',
             'PerfilProfesional' => 'required',
             'SobreMi' => 'required',
-            'ReferenciaPersonal' => 'required',
+            'Habilidades' => 'required',
+            /*'ReferenciaPersonal' => 'required',
             'ReferenciaLaboral' => 'required',
             'Education' => 'required',
             'EducationComple' => 'required',
-            'Idioma' => 'required',
+            'Idioma' => 'required',*/
         ]);
         if ($validator->fails()) {
             toastr()->error('Error verifica los datos !');
             return back()->withErrors($validator);
         } else {
-
+/*
             $foto = $request->file('Foto');
             $fotoImagen = 'storage/foto_cv' . $request->Nombre . '/' . $foto->getClientOriginalName();
             Storage::disk('public')->putFileAs('foto_cv' . $request->Nombre, $request->file('Foto'), $foto->getClientOriginalName());
-
-            foreach ($request->ReferenciaPersonal as $key => $value) {
-            }
-            foreach ($request->ReferenciaLaboral as $key => $value) {
-            }
-            foreach ($request->Education as $key => $value) {
-            }
-            foreach ($request->EducationComple as $key => $value) {
-            }
-            foreach ($request->Idioma as $key => $value) {
-            }
+*/
+            $HojaVida = new HojaVida();
+            $HojaVida->Nombre = $request->Nombre;
+            $HojaVida->Cargo = $request->Cargo;
+            $HojaVida->Idioma = $request->Idioma;
+            $HojaVida->Celular = $request->Celular;
+            $HojaVida->Fijo = $request->Fijo;
+            $HojaVida->Correo = $request->Correo;
+            $HojaVida->PerfilProfesional = $request->PerfilProfesional;
+            $HojaVida->SobreMi = $request->SobreMi;
+            $HojaVida->Habilidades = $request->Habilidades[0];
+            $HojaVida->save();
 
             toastr()->success('Se Creo el Fabricante !');
             return redirect('CurriculumVitae');

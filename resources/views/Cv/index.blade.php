@@ -21,18 +21,19 @@
                                 <thead class="bg-primary text-white">
                                     <tr>
                                         <th>#</th>
-                                        <th>Nombre Hoja de Vida</th>
+                                        <th>Nombre</th>
                                         <th>Idioma</th>
                                         <th>Fecha de creacion</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($HojaVida as $item)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Colombia CV</td>
-                                        <td>Español</td>
-                                        <td>26/03/2023</td>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->Nombre}}</td>
+                                        <td>{{$item->Idioma}}</td>
+                                        <td>{{$item->created_at}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-primary dropdown-toggle"
@@ -40,12 +41,15 @@
                                                     Acciones
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{ route('hoja.vida.show.pdf') }}" target="_blank">Visualizar</a>
-                                                    <a class="dropdown-item" href="{{ route('hoja.vida.pdf.export') }}">Exportar</a>
+                                                    <a class="dropdown-item" href="{{ route('hoja.vida.show.pdf',$item->id) }}"
+                                                        target="_blank">Visualizar</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('hoja.vida.pdf.export') }}">Exportar</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

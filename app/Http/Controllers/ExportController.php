@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HojaVida;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use LDAP\Result;
 
 class ExportController extends Controller
 {
-    public function ShowPdf()
+    public function ShowPdf($id)
     {
-        $pdf = PDF::loadView('PlantillaCv.index');
+        $HojaVida = HojaVida::find($id);
+        $pdf = PDF::loadView('PlantillaCv.index',compact('HojaVida'));
         return $pdf->stream();
     }
     public function PdfExport()
