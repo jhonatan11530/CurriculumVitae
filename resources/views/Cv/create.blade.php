@@ -22,7 +22,7 @@
                                 <label>Adjuntar Foto</label><span style="color: red">*</span>
                                 {!! Form::file('Foto', ['class' => 'form-control', 'accept' => 'image/png, image/gif, image/jpeg']) !!}
                             </div>
-                            <div class="col-sm-6 form-group">
+                            <div class="col-sm-12 form-group">
                                 <label>Cargo Asipirante</label><span style="color: red">*</span>
                                 <select name="Cargo" class="form-control js-multiple">
                                     <option value="" disabled>Seleccione el Cargo</option>
@@ -31,29 +31,21 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-sm-6 form-group">
-                                <label>Seleccione el Idioma</label><span style="color: red">*</span>
-                                <select name="Idioma" class="form-control">
-                                    <option value="" selected disabled>Seleccione una opcion</option>
-                                    <option value="Español">Español</option>
-                                    <option value="Ingles">Ingles</option>
-                                </select>
-                            </div>
                             <div class="col-sm-4 form-group">
                                 <label>Pais</label><span style="color: red">*</span>
-                                <select name="PaisDatoPrincipal" class="form-control" id="country">
+                                <select name="Pais" class="form-control" id="country">
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Departamento</label><span style="color: red">*</span>
-                                <select name="DepartamentoDatoPrincipal" class="form-control" id="estado">
+                                <select name="Departamento" class="form-control" id="estado">
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Ciudad</label><span style="color: red">*</span>
-                                <select name="CiudadDatoPrincipal" class="form-control" id="ciudad">
+                                <select name="Ciudad" class="form-control" id="ciudad">
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
@@ -63,15 +55,11 @@
                             <div class="col-sm-12 form-group">
                                 <h2 class="text-center">DATOS DE CONTACTO</h2>
                             </div>
-                            <div class="col-sm-4 form-group">
+                            <div class="col-sm-6 form-group">
                                 <label>Telefono Celular</label><span style="color: red">*</span>
                                 {!! Form::number('Celular', '', ['class' => 'form-control', 'min' => '0']) !!}
                             </div>
-                            <div class="col-sm-4 form-group">
-                                <label>Telefono Fijo</label><span style="color: red">*</span>
-                                {!! Form::number('Fijo', '', ['class' => 'form-control', 'min' => '0']) !!}
-                            </div>
-                            <div class="col-sm-4 form-group">
+                            <div class="col-sm-6 form-group">
                                 <label>Correo electronico</label><span style="color: red">*</span>
                                 {!! Form::email('Correo', '', ['class' => 'form-control']) !!}
                             </div>
@@ -100,19 +88,8 @@
                                 <label>Perfil Profesional</label><span style="color: red">*</span>
                                 {!! Form::textarea('PerfilProfesional', '', ['class' => 'form-control']) !!}
                             </div>
-                            <div class="col-sm-12">
-                                <div class="dropdown-divider"></div>
-                            </div>
-                            <div class="col-sm-12 form-group">
-                                <h2 class="text-center">INFORMACION SOBRE MI</h2>
-                            </div>
-                            <div class="col-sm-12 form-group">
-                                <label>Sobre Mi</label><span style="color: red">*</span>
-                                {!! Form::textarea('SobreMi', '', ['class' => 'form-control']) !!}
-                            </div>
                         </div>
-                        <!---  --->
-
+                        <!---
                         <div class="dropdown-divider"></div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
@@ -350,6 +327,7 @@
                             </div>
                         </div>
                         <div id="Languajes"></div>
+--->
 
                         {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}

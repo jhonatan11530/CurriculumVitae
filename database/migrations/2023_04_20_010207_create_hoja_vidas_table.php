@@ -17,12 +17,10 @@ class CreateHojaVidasTable extends Migration
             $table->id();
             $table->string('Nombre', 80)->nullable();
             $table->string('Cargo', 100)->nullable();
-            $table->string('Idioma', 10)->nullable();
             $table->string('Celular',15)->nullable();
-            $table->string('Fijo',15)->nullable();
             $table->string('Correo', 100)->nullable();
+            $table->text('Ubicacion')->nullable();
             $table->text('PerfilProfesional')->nullable();
-            $table->text('SobreMi')->nullable();
             $table->text('Habilidades')->nullable();
             $table->timestamps();
         });

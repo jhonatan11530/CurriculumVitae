@@ -46,13 +46,10 @@ class CurriculumVitaeController extends Controller
         $validator = Validator::make($request->all(), [
             'Nombre' => 'required',
             'Cargo' => 'required',
-            'Idioma' => 'required',
             'Celular' => 'required',
-            'Fijo' => 'required',
             'Correo' => 'required',
-            'PerfilProfesional' => 'required',
-            'SobreMi' => 'required',
             'Habilidades' => 'required',
+            'PerfilProfesional' => 'required',
             /*'ReferenciaPersonal' => 'required',
             'ReferenciaLaboral' => 'required',
             'Education' => 'required',
@@ -71,12 +68,10 @@ class CurriculumVitaeController extends Controller
             $HojaVida = new HojaVida();
             $HojaVida->Nombre = $request->Nombre;
             $HojaVida->Cargo = $request->Cargo;
-            $HojaVida->Idioma = $request->Idioma;
             $HojaVida->Celular = $request->Celular;
-            $HojaVida->Fijo = $request->Fijo;
             $HojaVida->Correo = $request->Correo;
+            $HojaVida->Ubicacion =$request->Pais." ".$request->Departamento." ".$request->Ciudad;
             $HojaVida->PerfilProfesional = $request->PerfilProfesional;
-            $HojaVida->SobreMi = $request->SobreMi;
             $HojaVida->Habilidades = $request->Habilidades[0];
             $HojaVida->save();
 
