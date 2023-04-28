@@ -60,13 +60,14 @@ class CurriculumVitaeController extends Controller
             toastr()->error('Error verifica los datos !');
             return back()->withErrors($validator);
         } else {
-/*
+
             $foto = $request->file('Foto');
             $fotoImagen = 'storage/foto_cv' . $request->Nombre . '/' . $foto->getClientOriginalName();
             Storage::disk('public')->putFileAs('foto_cv' . $request->Nombre, $request->file('Foto'), $foto->getClientOriginalName());
-*/
+
             $HojaVida = new HojaVida();
             $HojaVida->Nombre = $request->Nombre;
+            $HojaVida->Foto = $fotoImagen;
             $HojaVida->Cargo = $request->Cargo;
             $HojaVida->Celular = $request->Celular;
             $HojaVida->Correo = $request->Correo;

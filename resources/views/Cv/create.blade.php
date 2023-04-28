@@ -20,11 +20,11 @@
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Adjuntar Foto</label><span style="color: red">*</span>
-                                {!! Form::file('Foto', ['class' => 'form-control', 'accept' => 'image/png, image/gif, image/jpeg']) !!}
+                                {!! Form::file('Foto', ['class' => 'form-control', 'accept' => 'image/png, image/gif, image/jpeg','required']) !!}
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label>Cargo Asipirante</label><span style="color: red">*</span>
-                                <select name="Cargo" class="form-control js-multiple">
+                                <select name="Cargo" class="form-control js-multiple" required>
                                     <option value="" disabled>Seleccione el Cargo</option>
                                     @foreach ($Cargos as $program)
                                         <option value="{{ $program->nombre }}">{{ $program->nombre }}</option>
@@ -33,19 +33,19 @@
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Pais</label><span style="color: red">*</span>
-                                <select name="Pais" class="form-control" id="country">
+                                <select name="Pais" class="form-control" id="country" required>
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Departamento</label><span style="color: red">*</span>
-                                <select name="Departamento" class="form-control" id="estado">
+                                <select name="Departamento" class="form-control" id="estado" required>
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
                             <div class="col-sm-4 form-group">
                                 <label>Ciudad</label><span style="color: red">*</span>
-                                <select name="Ciudad" class="form-control" id="ciudad">
+                                <select name="Ciudad" class="form-control" id="ciudad" required>
                                     <option value="" selected disabled>Seleccione el cargo</option>
                                 </select>
                             </div>
@@ -57,11 +57,11 @@
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Telefono Celular</label><span style="color: red">*</span>
-                                {!! Form::number('Celular', '', ['class' => 'form-control', 'min' => '0']) !!}
+                                {!! Form::number('Celular', '', ['class' => 'form-control', 'min' => '0','required']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label>Correo electronico</label><span style="color: red">*</span>
-                                {!! Form::email('Correo', '', ['class' => 'form-control']) !!}
+                                {!! Form::email('Correo', '', ['class' => 'form-control','required']) !!}
                             </div>
                             <div class="col-sm-12">
                                 <div class="dropdown-divider"></div>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label>Habilidades</label><span style="color: red">*</span>
-                                <select name="Habilidades[]" class="form-control js-multiple" multiple>
+                                <select name="Habilidades[]" class="form-control js-multiple" multiple required>
                                     <option value="" disabled>Seleccione el lenguaje de programacion</option>
                                     @foreach ($Languajes as $program)
                                         <option value="{{ $program->nombre }}">{{ $program->nombre }}</option>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label>Perfil Profesional</label><span style="color: red">*</span>
-                                {!! Form::textarea('PerfilProfesional', '', ['class' => 'form-control']) !!}
+                                {!! Form::textarea('PerfilProfesional', '', ['class' => 'form-control','required']) !!}
                             </div>
                         </div>
                         <!---

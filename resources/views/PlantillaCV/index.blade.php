@@ -40,7 +40,7 @@
 <body>
     <div class="Container_Color_fondo">
         <div class="imagen_foto">
-            <img src="{{ asset('img/foto.png') }}" alt="Image not found" height="200" width="200">
+            <img src="#" alt="Image not found" height="200" width="200">
         </div>
         <div class="texto_datos_personales">
             <h2>{{ $HojaVida->Nombre }}</h2>
