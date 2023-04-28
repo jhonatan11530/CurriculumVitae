@@ -6,6 +6,7 @@ use App\Models\Cargos;
 use App\Models\HojaVida;
 use App\Models\languajes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -61,13 +62,17 @@ class CurriculumVitaeController extends Controller
             return back()->withErrors($validator);
         } else {
 
+            $edad = Carbon::parse($request->DateNacimiento)->age;
+
             $foto = $request->file('Foto');
-            $fotoImagen = 'storage/foto_cv' . $request->Nombre . '/' . $foto->getClientOriginalName();
-            Storage::disk('public')->putFileAs('foto_cv' . $request->Nombre, $request->file('Foto'), $foto->getClientOriginalName());
+            $fotoImagen = 'storage/foto_cv_' . $request->Nombre . '/' . $foto->getClientOriginalName();
+            Storage::disk('public')->putFileAs('foto_cv_' . $request->Nombre, $request->file('Foto'), $foto->getClientOriginalName());
 
             $HojaVida = new HojaVida();
             $HojaVida->Nombre = $request->Nombre;
             $HojaVida->Foto = $fotoImagen;
+            $HojaVida->Edad = $edad;
+            $HojaVida->FechaNacimiento = $request->DateNacimiento;
             $HojaVida->Cargo = $request->Cargo;
             $HojaVida->Celular = $request->Celular;
             $HojaVida->Correo = $request->Correo;

@@ -22,7 +22,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Nombre</th>
-                                        <th>Idioma</th>
+                                        <th>Cargo</th>
                                         <th>Fecha de creacion</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -32,7 +32,7 @@
                                     <tr>
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->Nombre}}</td>
-                                        <td>{{$item->Idioma}}</td>
+                                        <td>{{$item->Cargo}}</td>
                                         <td>{{$item->created_at}}</td>
                                         <td>
                                             <div class="btn-group">

@@ -17,6 +17,8 @@ class CreateHojaVidasTable extends Migration
             $table->id();
             $table->string('Nombre', 80)->nullable();
             $table->string('Foto', 100)->nullable();
+            $table->string('FechaNacimiento', 100)->nullable();
+            $table->string('Edad', 5)->nullable();
             $table->string('Cargo', 100)->nullable();
             $table->string('Celular',15)->nullable();
             $table->string('Correo', 100)->nullable();

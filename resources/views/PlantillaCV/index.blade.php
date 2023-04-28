@@ -40,19 +40,21 @@
 <body>
     <div class="Container_Color_fondo">
         <div class="imagen_foto">
-            <img src="#" alt="Image not found" height="200" width="200">
+            <img src="{{$HojaVida->Foto}}" alt="Image not found" height="200" width="200">
         </div>
         <div class="texto_datos_personales">
             <h2>{{ $HojaVida->Nombre }}</h2>
-            <h4>{{ $HojaVida->Cargo }}</h4>
+            <h4>{{ $HojaVida->Edad }} Años</h4>
+            <h4>{{ $HojaVida->FechaNacimiento }}</h4>
+            <h4>{{ $HojaVida->Ubicacion }}</h4>
             <h3>CONTACTO</h3>
             <h4>{{ $HojaVida->Celular }} - {{ $HojaVida->Fijo }}</h4>
             <h4>{{ $HojaVida->Correo }}</h4>
-            <h4>{{ $HojaVida->Ubicacion }}</h4>
+
             <h3>PERFIL PROFESIONAL</h3>
             <span style="font-size: 20px;">{{ $HojaVida->PerfilProfesional }}
             </span>
-            <h3>LENGUAJES DE PROGRAMACION</h3>
+            <h3>CONOCIMIENTO EN LENGUAJES</h3>
             <ul>
                 <li>C#</li>
                 <li>JAVA</li>
