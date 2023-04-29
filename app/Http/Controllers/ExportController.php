@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use PDF;
 use App\Models\HojaVida;
 use Illuminate\Http\Request;
@@ -9,8 +10,12 @@ class ExportController extends Controller
 {
     public function ShowPdf($id)
     {
+
         $HojaVida = HojaVida::find($id);
-        $pdf = PDF::loadView('PlantillaCv.index',compact('HojaVida'));
+        $Habilidades = '';
+        $Habilidades = explode("%/-\%", $HojaVida->Habilidades);
+        //
+        $pdf = PDF::loadView('PlantillaCv.index',compact('HojaVida','Habilidades'));
 
         return $pdf->stream();
     }

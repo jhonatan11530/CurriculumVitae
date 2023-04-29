@@ -45,6 +45,8 @@
                                                         target="_blank">Visualizar</a>
                                                     <a class="dropdown-item"
                                                         href="{{ route('hoja.vida.pdf.export') }}">Exportar</a>
+                                                        <a class="dropdown-item" data-toggle="modal" data-target="#eliminar"
+                                                        href="#">Eliminar</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -58,4 +60,27 @@
             </div>
         </div>
     </div>
+@isset($item)
+    <div class="modal fade" id="eliminar">
+        <div class="modal-dialog text-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">SEGURO QUE DESEA ELIMINAR ?</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <i class="fas fa-user-alt-slash fa-10x" style="color:rgb(255, 52, 52)"></i>
+                </div>
+                <div class="modal-footer">
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['CurriculumVitae.destroy', $item->id]]) !!}
+                    {!! Form::submit('Eliminar', ['class' => 'btn btn-primary mt-3']) !!}
+                    <button type="button" class="btn btn-danger mt-3" data-dismiss="modal">Atras</button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    @endisset
 @endsection

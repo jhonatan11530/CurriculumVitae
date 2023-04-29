@@ -20,7 +20,7 @@ class CurriculumVitaeController extends Controller
     public function index()
     {
         $HojaVida = HojaVida::all();
-        return view('Cv.index',compact('HojaVida'));
+        return view('Cv.index', compact('HojaVida'));
     }
 
     /**
@@ -43,7 +43,7 @@ class CurriculumVitaeController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+
         $validator = Validator::make($request->all(), [
             'Nombre' => 'required',
             'Cargo' => 'required',
@@ -68,6 +68,10 @@ class CurriculumVitaeController extends Controller
             $fotoImagen = 'storage/foto_cv_' . $request->Nombre . '/' . $foto->getClientOriginalName();
             Storage::disk('public')->putFileAs('foto_cv_' . $request->Nombre, $request->file('Foto'), $foto->getClientOriginalName());
 
+            $Habilidades = '';
+            $Habilidades = implode("%/-\%", $request->Habilidades);
+
+
             $HojaVida = new HojaVida();
             $HojaVida->Nombre = $request->Nombre;
             $HojaVida->Foto = $fotoImagen;
@@ -76,9 +80,9 @@ class CurriculumVitaeController extends Controller
             $HojaVida->Cargo = $request->Cargo;
             $HojaVida->Celular = $request->Celular;
             $HojaVida->Correo = $request->Correo;
-            $HojaVida->Ubicacion =$request->Pais." ".$request->Departamento." ".$request->Ciudad;
+            $HojaVida->Ubicacion = $request->Pais . " " . $request->Departamento . " " . $request->Ciudad;
             $HojaVida->PerfilProfesional = $request->PerfilProfesional;
-            $HojaVida->Habilidades = $request->Habilidades[0];
+            $HojaVida->Habilidades = $Habilidades;
             $HojaVida->save();
 
             toastr()->success('Se Creo el Fabricante !');
@@ -128,6 +132,10 @@ class CurriculumVitaeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curriculum = HojaVida::find($id);
+        Storage::deleteDirectory('foto_cv_' . $curriculum->Nombre);
+        $curriculum->delete();
+        toastr()->error('Se elimino la hoja de vida exitosamente !');
+        return redirect('CurriculumVitae');
     }
 }
