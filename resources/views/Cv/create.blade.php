@@ -214,7 +214,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>jora hoja de vida
                                 </div>
                                 <div id="Person"></div>
                             </div>
