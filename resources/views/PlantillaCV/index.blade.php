@@ -15,6 +15,15 @@
             display: block;
             margin: 0 auto;
         }
+
+        li {
+            display: block;
+            margin-bottom: 0px;
+        }
+
+        li:nth-child(6n) {
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 
@@ -42,21 +51,21 @@
             </ul>
             <h3>BASE DE DATOS</h3>
             <ul>
-                <li>SQL SERVER</li>
-                <li>ORACLE</li>
-                <li>MYSQL</li>
+                @foreach ($Database as $item)
+                    <li>{{ strtoupper($item) }}</li>
+                @endforeach
+            </ul>
+            <h3>REFERENCIA FAMILIAR</h3>
+            <ul>
+                @foreach ($ReferenceFamily as $item)
+                    <li>{{ strtoupper($item) }}</li>
+                @endforeach
             </ul>
             <h3>REFERENCIA PERSONAL</h3>
             <ul>
-                <li>SQL SERVER</li>
-                <li>ORACLE</li>
-                <li>MYSQL</li>
-            </ul>
-            <h3>REFERENCIA PERSONAL</h3>
-            <ul>
-                <li>SQL SERVER</li>
-                <li>ORACLE</li>
-                <li>MYSQL</li>
+                @foreach ($ReferencePerson as $item)
+                    <li>{{ strtoupper($item) }}</li>
+                @endforeach
             </ul>
             <h3>IDIOMAS</h3>
             <ul>

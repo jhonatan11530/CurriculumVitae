@@ -8,6 +8,6 @@ class HojaVida extends Model
 {
     protected $table = 'Hoja_Vida';
     protected $fillable = [
-        'Nombre','Cargo','Idioma','Celular','Fijo','Correo','Ubicacion','PerfilProfesional','Habilidades'
+        'Nombre','Cargo','Idioma','Celular','Fijo','Correo','Ubicacion','PerfilProfesional','Habilidades','Database'
     ];
 }

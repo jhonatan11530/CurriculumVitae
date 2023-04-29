@@ -41,7 +41,6 @@ class CreateLanguajesTable extends Migration
             array('nombre' => 'Dart'),
             array('nombre' => 'Scala'),
             array('nombre' => 'Haskell'),
-            array('nombre' => 'Julia'),
             array('nombre' => 'Groovy'),
             array('nombre' => 'F#'),
             array('nombre' => 'Bash'),
@@ -51,7 +50,6 @@ class CreateLanguajesTable extends Migration
             array('nombre' => 'Ada'),
             array('nombre' => 'Prolog'),
             array('nombre' => 'Lisp'),
-            array('nombre' => 'Scratch'),
             array('nombre' => 'Fortran'),
             array('nombre' => 'Crystal'),
             array('nombre' => 'Delphi/Object Pascal'),
@@ -104,7 +102,6 @@ class CreateLanguajesTable extends Migration
             array('nombre' => 'SPARK'),
             array('nombre' => 'SPSS'),
             array('nombre' => 'Stata'),
-            array('nombre' => 'Swift'),
             array('nombre' => 'TADS'),
             array('nombre' => 'Tea'),
             array('nombre' => 'Turing'),
@@ -118,7 +115,6 @@ class CreateLanguajesTable extends Migration
             array('nombre' => 'ABC'),
             array('nombre' => 'Amiga E'),
             array('nombre' => 'AMPL'),
-            array('nombre' => 'COOL'),
             array('nombre' => 'Esperanto')
         ]);
     }

@@ -25,6 +25,10 @@ class CreateHojaVidasTable extends Migration
             $table->text('Ubicacion')->nullable();
             $table->text('PerfilProfesional')->nullable();
             $table->text('Habilidades')->nullable();
+            $table->text('Database')->nullable();
+            $table->text('ReferenceFamily')->nullable();
+            $table->text('ReferencePerson')->nullable();
+            $table->text('ReferenceJobs')->nullable();
             $table->timestamps();
         });
     }

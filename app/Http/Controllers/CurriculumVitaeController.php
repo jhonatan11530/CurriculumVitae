@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cargos;
+use App\Models\Database;
 use App\Models\HojaVida;
 use App\Models\languajes;
 use Illuminate\Http\Request;
@@ -30,9 +31,10 @@ class CurriculumVitaeController extends Controller
      */
     public function create()
     {
+        $Databases = Database::all();
         $Languajes = languajes::all();
         $Cargos = Cargos::all();
-        return view('Cv.create', compact('Languajes', 'Cargos'));
+        return view('Cv.create', compact('Languajes', 'Cargos','Databases'));
     }
 
     /**
@@ -71,7 +73,18 @@ class CurriculumVitaeController extends Controller
             $Habilidades = '';
             $Habilidades = implode("%/-\%", $request->Habilidades);
 
+            $Database = '';
+            $Database = implode("%/-\%", $request->Database);
 
+            $ReferenceFamily = '';
+            $ReferenceFamily = implode("%/-\%", $request->ReferenciaFamily);
+
+            $ReferenciaPersonal = '';
+            $ReferenciaPersonal = implode("%/-\%", $request->ReferenciaPersonal);
+/*
+            $ReferenceJobs = '';
+            $ReferenceJobs = implode("%/-\%", $request->ReferenceJobs);
+*/
             $HojaVida = new HojaVida();
             $HojaVida->Nombre = $request->Nombre;
             $HojaVida->Foto = $fotoImagen;
@@ -83,6 +96,10 @@ class CurriculumVitaeController extends Controller
             $HojaVida->Ubicacion = $request->Pais . " " . $request->Departamento . " " . $request->Ciudad;
             $HojaVida->PerfilProfesional = $request->PerfilProfesional;
             $HojaVida->Habilidades = $Habilidades;
+            $HojaVida->Database = $Database;
+            $HojaVida->ReferenceFamily = $ReferenceFamily;
+            $HojaVida->ReferencePerson = $ReferenciaPersonal;
+           // $HojaVida->ReferenceJobs = $ReferenciaPersonal;
             $HojaVida->save();
 
             toastr()->success('Se Creo el Fabricante !');
