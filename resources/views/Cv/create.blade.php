@@ -75,11 +75,9 @@
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label>Habilidades</label><span style="color: red">*</span>
-                                <select name="Habilidades[]" class="form-control js-multiple" multiple required>
+                                <select name="Habilidades[]" id="Habilidades" class="form-control js-multiple" multiple
+                                    required>
                                     <option value="" disabled>Seleccione el lenguaje de programacion</option>
-                                    @foreach ($Languajes as $program)
-                                        <option value="{{ $program->nombre }}">{{ $program->nombre }}</option>
-                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-sm-12 form-group">
@@ -137,7 +135,7 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Pais</label><span style="color: red">*</span>
                                                 <select name="ReferenciaFamily[]" class="form-control"
-                                                    id="ReferenceFamilyCountry0" required>
+                                                    id="ReferenceFamilyCountry1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
@@ -145,14 +143,14 @@
                                                 <label class="text-white">Departamento</label><span
                                                     style="color: red">*</span>
                                                 <select name="ReferenciaFamily[]" class="form-control"
-                                                    id="ReferenceFamilyEstado0" required>
+                                                    id="ReferenceFamilyEstado1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Ciudad</label><span style="color: red">*</span>
                                                 <select name="ReferenciaFamily[]" class="form-control"
-                                                    id="ReferenceFamilyCiudad0" required>
+                                                    id="ReferenceFamilyCiudad1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
@@ -194,7 +192,7 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Pais</label><span style="color: red">*</span>
                                                 <select name="ReferenciaPersonal[]" class="form-control"
-                                                    id="ReferencePersonCountry0" required>
+                                                    id="ReferencePersonCountry1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
@@ -202,103 +200,137 @@
                                                 <label class="text-white">Departamento</label><span
                                                     style="color: red">*</span>
                                                 <select name="ReferenciaPersonal[]" class="form-control"
-                                                    id="ReferencePersonEstado0" required>
+                                                    id="ReferencePersonEstado1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Ciudad</label><span style="color: red">*</span>
                                                 <select name="ReferenciaPersonal[]" class="form-control"
-                                                    id="ReferencePersonCiudad0" required>
+                                                    id="ReferencePersonCiudad1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>jora hoja de vida
+                                    </div>
                                 </div>
                                 <div id="Person"></div>
                             </div>
                         </div>
-                        <!---
-                                                            <div class="dropdown-divider"></div>
-                                                            <div class="row">
-                                                                <div class="col-sm-12 form-group">
-                                                                    <h2 class="text-center">EXPERIENCIA LABORAL</h2>
-                                                                    <a class="btn btn-primary text-white" onclick="ReferenceJobs()">Añadir Experiencia</a>
-                                                                </div>
-                                                                <div class="col-sm-12">
-                                                                    <div class="card text-white bg-primary">
-                                                                        <div class="card-body">
-                                                                            <div class="row">
-                                                                                <div class="col-sm-12 form-group">
-                                                                                    <h2 class="text-center">EXPERIENCIA #1</h2>
-                                                                                </div>
-                                                                                <div class="col-sm-4 form-group">
-                                                                                    <label class="text-white">nombre empresa</label><span
-                                                                                        style="color: red">*</span>
-                                                                                    {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
-                                                                                </div>
-                                                                                <div class="col-sm-4 form-group">
-                                                                                    <label class="text-white">fecha ingreso</label><span
-                                                                                        style="color: red">*</span>
-                                                                                    {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
-                                                                                </div>
-                                                                                <div class="col-sm-4 form-group">
-                                                                                    <label class="text-white">fecha salida</label><span
-                                                                                        style="color: red">*</span>
-                                                                                    {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
-                                                                                </div>
-                                                                                <div class="col-sm-4 form-group">
-                                                                                    <label class="text-white">cargo en la empresa</label><span
-                                                                                        style="color: red">*</span>
-                                                                                    {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
-                                                                                </div>
-                                                                                <div class="col-sm-3 form-group">
-                                                                                    <label class="text-white">Pais</label><span style="color: red">*</span>
-                                                                                    <select name="ReferenciaLaboral[]" class="form-control"
-                                                                                        id="ReferenceJosbcountry0" required>
-                                                                                        <option value="" selected disabled>Seleccione el cargo</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="col-sm-3 form-group">
-                                                                                    <label class="text-white">Departamento</label><span
-                                                                                        style="color: red">*</span>
-                                                                                    <select name="ReferenciaLaboral[]" class="form-control"
-                                                                                        id="ReferenceJosbestado0" required>
-                                                                                        <option value="" selected disabled>Seleccione el cargo</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="col-sm-2 form-group">
-                                                                                    <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                                                                    <select name="ReferenciaLaboral[]" class="form-control"
-                                                                                        id="ReferenceJosbciudad0" required>
-                                                                                        <option value="" selected disabled>Seleccione el cargo</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                                <div class="col-sm-4 form-group">
-                                                                                    <label class="text-white">Tareas</label><span style="color: red">*</span>
-                                                                                    {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
-                                                                                </div>
-                                                                                <div class="col-sm-4 form-group">
-                                                                                    <label class="text-white">Funciones</label><span
-                                                                                        style="color: red">*</span>
-                                                                                    {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
-                                                                                </div>
-                                                                                <div class="col-sm-4 form-group">
-                                                                                    <label class="text-white">Habilidades Usadas</label><span
-                                                                                        style="color: red">*</span>
-                                                                                    <select name="ReferenciaLaboral[]" class="form-control js-multiple"
-                                                                                        multiple required>
-                                                                                        <option value="" disabled>Seleccione el cargo</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div id="ReferenceFamily"></div>
-                                                            </div>
-                                --->
+                        <!--- --->
+                        <div class="dropdown-divider"></div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <h2 class="text-center">EXPERIENCIA LABORAL</h2>
+                                <a class="btn btn-primary text-white" onclick="jobs()">Añadir Experiencia</a>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card text-white bg-primary">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 form-group">
+                                                <h2 class="text-center">EXPERIENCIA #1</h2>
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">nombre empresa</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">fecha ingreso</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">fecha salida</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">cargo en la empresa</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <label class="text-white">Pais</label><span style="color: red">*</span>
+                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                    id="ReferenceJobsCountry1" required>
+                                                    <option value="" selected disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <label class="text-white">Departamento</label><span
+                                                    style="color: red">*</span>
+                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                    id="ReferenceJobsEstado1" required>
+                                                    <option value="" selected disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-2 form-group">
+                                                <label class="text-white">Ciudad</label><span style="color: red">*</span>
+                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                    id="ReferenceJobsCiudad1" required>
+                                                    <option value="" selected disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">Tareas</label><span style="color: red">*</span>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">Funciones</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">Habilidades Usadas</label><span
+                                                    style="color: red">*</span>
+                                                <select name="ReferenciaLaboral[]" id="HabilidadesUsing0"
+                                                    class="form-control js-multiple" multiple required>
+                                                    <option value="" disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Jobs"></div>
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <h2 class="text-center">IDIOMAS QUE MANEJA</h2>
+                                <a class="btn btn-primary text-white" onclick="Languaje()">Añadir Idiomas</a>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="card text-white bg-primary">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 form-group">
+                                                <h2 class="text-center">IDIOMAS #1</h2>
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label class="text-white">Idioma</label>
+                                                <select name="Idioma[]" id="Idioma" class="form-control">
+                                                    <option value="" selected disabled>Seleccione Idioma</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label class="text-white">Nivel Idioma</label>
+                                                <select name="Idioma[]" class="form-control">
+                                                    <option value="" selected disabled>Seleccione Idioma</option>
+                                                    <option value="Basico">Basico</option>
+                                                    <option value="Intermedio">Intermedio</option>
+                                                    <option value="Avanzado">Avanzado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Languajes"></div>
+                            </div>
+                        </div>
                         {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
                     </div>
@@ -311,14 +343,15 @@
             InicializeAjax();
 
             $('.js-multiple').select2();
-            var ReferenceFamily = 0;
-            var ReferencePerson = 0;
-            /*
 
-                            var EducationInt = 1;
-                            var EducationComInt = 1;
-                            var LanguajeInt = 1;
-                            */
+            var ReferenceFamily = 1;
+            var ReferencePerson = 1;
+            var LanguajeInt = 1;
+            var Jobs = 1;
+            /*
+                        var EducationInt = 1;
+                        var EducationComInt = 1;
+            */
             // se ejecuta un Ajax que trae los paises mediante AJAX
             function InicializeAjax() {
                 $.ajax({
@@ -340,6 +373,53 @@
                             $('#ReferencePersonCountry' + ReferencePerson).append($('<option>', {
                                 value: result,
                                 text: result
+                            }));
+                            $('#ReferenceJobsCountry' + Jobs).append($('<option>', {
+                                value: result,
+                                text: result
+                            }));
+
+                        });
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+
+                $.ajax({
+                    type: "get",
+                    url: "/api/lenguaje",
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#Habilidades').append($('<option>', {
+                                value: result['nombre'],
+                                text: result['nombre']
+                            }));
+                            $('#HabilidadesUsing').append($('<option>', {
+                                value: result['nombre'],
+                                text: result['nombre']
+                            }));
+                        });
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+
+                $.ajax({
+                    type: "get",
+                    url: "/api/idioma",
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#Idioma').append($('<option>', {
+                                value: result['nombre'],
+                                text: result['nombre']
                             }));
                         });
                     },
@@ -396,54 +476,6 @@
                 });
 
             }
-
-            $('#ReferenceFamilyCountry' + ReferenceFamily).change(function(e) {
-                e.preventDefault();
-                $('#ReferenceFamilyEstado' + ReferenceFamily).empty();
-                $.ajax({
-                    type: "get",
-                    url: "/api/estado/" + $(this).val(),
-                    dataType: 'json',
-                    tryCount: 0,
-                    retryLimit: 3,
-                    success: function(response) {
-                        $.each(response, function(key, result) {
-                            $('#ReferenceFamilyEstado' + ReferenceFamily).append($('<option>', {
-                                value: result,
-                                text: result
-                            }));
-                        });
-
-                    },
-                    error: function(xhr) {
-                        alert("Ocurrió un error. Vuelva a intentarlo.");
-                    }
-                });
-            });
-
-            $('#ReferenceFamilyEstado' + ReferenceFamily).change(function(e) {
-                e.preventDefault();
-                $('#ReferenceFamilyCiudad' + ReferenceFamily).empty();
-                $.ajax({
-                    type: "get",
-                    url: "/api/ciudad/" + $(this).val(),
-                    dataType: 'json',
-                    tryCount: 0,
-                    retryLimit: 3,
-                    success: function(response) {
-                        $.each(response, function(key, result) {
-                            $('#ReferenceFamilyCiudad' + ReferenceFamily).append($('<option>', {
-                                value: result,
-                                text: result
-                            }));
-                        });
-                    },
-                    error: function(xhr) {
-                        alert("Ocurrió un error. Vuelva a intentarlo.");
-                    }
-                });
-            });
-
 
             function Family() {
                 ReferenceFamily++;
@@ -563,6 +595,53 @@
                 });
 
             }
+
+            $('#ReferenceFamilyCountry' + ReferenceFamily).change(function(e) {
+                e.preventDefault();
+                $('#ReferenceFamilyEstado' + ReferenceFamily).empty();
+                $.ajax({
+                    type: "get",
+                    url: "/api/estado/" + $(this).val(),
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#ReferenceFamilyEstado' + ReferenceFamily).append($('<option>', {
+                                value: result,
+                                text: result
+                            }));
+                        });
+
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+            });
+
+            $('#ReferenceFamilyEstado' + ReferenceFamily).change(function(e) {
+                e.preventDefault();
+                $('#ReferenceFamilyCiudad' + ReferenceFamily).empty();
+                $.ajax({
+                    type: "get",
+                    url: "/api/ciudad/" + $(this).val(),
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#ReferenceFamilyCiudad' + ReferenceFamily).append($('<option>', {
+                                value: result,
+                                text: result
+                            }));
+                        });
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+            });
 
             function Person() {
                 ReferencePerson++;
@@ -730,6 +809,260 @@
                     }
                 });
             });
+
+            function jobs() {
+                Jobs++;
+                var html = null;
+                html = `<div class="card text-white bg-primary">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 form-group">
+                                                <h2 class="text-center">EXPERIENCIA #1</h2>
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">nombre empresa</label>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">fecha ingreso</label>
+                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">fecha salida</label>
+                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">cargo en la empresa</label>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <label class="text-white">Pais</label>
+                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                    id="ReferenceJobsCountry${Jobs}" required>
+                                                    <option value="" selected disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <label class="text-white">Departamento</label>
+                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                    id="ReferenceJobsEstado${Jobs}" required>
+                                                    <option value="" selected disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-2 form-group">
+                                                <label class="text-white">Ciudad</label>
+                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                    id="ReferenceJobsCiudad${Jobs}" required>
+                                                    <option value="" selected disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">Tareas</label>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">Funciones</label>
+                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="text-white">Habilidades Usadas</label>
+                                                <select name="ReferenciaLaboral[]" id="HabilidadesUsing${Jobs}"
+                                                    class="form-control js-multiple" multiple required>
+                                                    <option value="" disabled>Seleccione el cargo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                $('#Jobs').append(html);
+
+                setTimeout(function() {
+                    $('.js-multiple').select2();
+                }, 100);
+
+                $.ajax({
+                    type: "get",
+                    url: "/api/pais",
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#ReferenceJobsCountry' + Jobs).append($('<option>', {
+                                value: result,
+                                text: result
+                            }));
+
+                        });
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+
+                $.ajax({
+                    type: "get",
+                    url: "/api/lenguaje",
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#HabilidadesUsing' + Jobs).append($('<option>', {
+                                value: result,
+                                text: result
+                            }));
+                        });
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+
+                $('#ReferenceJobsCountry' + Jobs).change(function(e) {
+                    e.preventDefault();
+                    $('#ReferenceJobsEstado' + Jobs).empty();
+                    $.ajax({
+                        type: "get",
+                        url: "/api/estado/" + $(this).val(),
+                        dataType: 'json',
+                        tryCount: 0,
+                        retryLimit: 3,
+                        success: function(response) {
+                            $.each(response, function(key, result) {
+                                $('#ReferenceJobsEstado' + Jobs).append($('<option>', {
+                                    value: result,
+                                    text: result
+                                }));
+                            });
+
+                        },
+                        error: function(xhr) {
+                            alert("Ocurrió un error. Vuelva a intentarlo.");
+                        }
+                    });
+                });
+
+                $('#ReferenceJobsEstado' + Jobs).change(function(e) {
+                    e.preventDefault();
+                    $('#ReferenceJobsCiudad' + Jobs).empty();
+                    $.ajax({
+                        type: "get",
+                        url: "/api/ciudad/" + $(this).val(),
+                        dataType: 'json',
+                        tryCount: 0,
+                        retryLimit: 3,
+                        success: function(response) {
+                            $.each(response, function(key, result) {
+                                $('#ReferenceJobsCiudad' + Jobs).append($('<option>', {
+                                    value: result,
+                                    text: result
+                                }));
+                            });
+                        },
+                        error: function(xhr) {
+                            alert("Ocurrió un error. Vuelva a intentarlo.");
+                        }
+                    });
+                });
+
+            }
+
+            $('#ReferenceJobsCountry' + Jobs).change(function(e) {
+                e.preventDefault();
+                $('#ReferenceJobsEstado' + Jobs).empty();
+                $.ajax({
+                    type: "get",
+                    url: "/api/estado/" + $(this).val(),
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#ReferenceJobsEstado' + Jobs).append($('<option>', {
+                                value: result,
+                                text: result
+                            }));
+                        });
+
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+            });
+
+            $('#ReferenceJobsEstado' + Jobs).change(function(e) {
+                e.preventDefault();
+                $('#ReferenceJobsCiudad' + Jobs).empty();
+                $.ajax({
+                    type: "get",
+                    url: "/api/ciudad/" + $(this).val(),
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#ReferenceJobsCiudad' + Jobs).append($('<option>', {
+                                value: result,
+                                text: result
+                            }));
+                        });
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+            });
+
+            function Languaje() {
+                LanguajeInt++;
+                var html = null;
+                html = `<div class="card text-white bg-primary">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 form-group">
+                                                <h2 class="text-center">IDIOMAS #${LanguajeInt}</h2>
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label class="text-white">Idioma</label>
+                                                <select name="Idioma[]" id="Idioma${LanguajeInt}" class="form-control">
+                                                    <option value="" selected disabled>Seleccione Idioma</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label class="text-white">Nivel Idioma</label>
+                                                <select name="Idioma[]" class="form-control">
+                                                    <option value="" selected disabled>Seleccione Idioma</option>
+                                                    <option value="Basico">Basico</option>
+                                                    <option value="Intermedio">Intermedio</option>
+                                                    <option value="Avanzado">Avanzado</option>
+                                                </select>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                $('#Languajes').append(html);
+
+                $.ajax({
+                    type: "get",
+                    url: "/api/idioma",
+                    dataType: 'json',
+                    tryCount: 0,
+                    retryLimit: 3,
+                    success: function(response) {
+                        $.each(response, function(key, result) {
+                            $('#Idioma' + LanguajeInt).append($('<option>', {
+                                value: result['nombre'],
+                                text: result['nombre']
+                            }));
+                        });
+                    },
+                    error: function(xhr) {
+                        alert("Ocurrió un error. Vuelva a intentarlo.");
+                    }
+                });
+            }
         </script>
     @endpush
 @endsection

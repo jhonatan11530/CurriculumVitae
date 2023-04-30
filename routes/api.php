@@ -1,9 +1,14 @@
 <?php
 
+use App\Models\languajes;
+use App\Models\Idiomas;
+
 use App\Http\Resources\ApiCityCountry;
 use App\Http\Resources\ApiCountry;
+use App\Http\Resources\ApiIdioma;
+use App\Http\Resources\ApiLenguaje;
 use App\Http\Resources\ApiStatesCountry;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +33,10 @@ Route::get('ciudad/{id}', function ($id) {
     return new ApiCityCountry($id);
 });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('idioma/', function () {
+    return new ApiIdioma(Idiomas::all());
+});
+
+Route::get('lenguaje/', function () {
+    return new ApiLenguaje(languajes::all());
 });

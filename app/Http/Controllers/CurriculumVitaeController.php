@@ -32,9 +32,9 @@ class CurriculumVitaeController extends Controller
     public function create()
     {
         $Databases = Database::all();
-        $Languajes = languajes::all();
         $Cargos = Cargos::all();
-        return view('Cv.create', compact('Languajes', 'Cargos','Databases'));
+
+        return view('Cv.create', compact('Cargos', 'Databases'));
     }
 
     /**
@@ -81,10 +81,14 @@ class CurriculumVitaeController extends Controller
 
             $ReferenciaPersonal = '';
             $ReferenciaPersonal = implode("%/-\%", $request->ReferenciaPersonal);
-/*
+            /*
             $ReferenceJobs = '';
             $ReferenceJobs = implode("%/-\%", $request->ReferenceJobs);
 */
+
+            $Idioma = '';
+            $Idioma = implode("%/-\%", $request->Idioma);
+
             $HojaVida = new HojaVida();
             $HojaVida->Nombre = $request->Nombre;
             $HojaVida->Foto = $fotoImagen;
@@ -99,7 +103,8 @@ class CurriculumVitaeController extends Controller
             $HojaVida->Database = $Database;
             $HojaVida->ReferenceFamily = $ReferenceFamily;
             $HojaVida->ReferencePerson = $ReferenciaPersonal;
-           // $HojaVida->ReferenceJobs = $ReferenciaPersonal;
+            // $HojaVida->ReferenceJobs = $ReferenciaPersonal;
+            $HojaVida->Idioma = $Idioma;
             $HojaVida->save();
 
             toastr()->success('Se Creo el Fabricante !');
