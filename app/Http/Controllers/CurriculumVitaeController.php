@@ -81,10 +81,9 @@ class CurriculumVitaeController extends Controller
 
             $ReferenciaPersonal = '';
             $ReferenciaPersonal = implode("%/-\%", $request->ReferenciaPersonal);
-            /*
+
             $ReferenceJobs = '';
-            $ReferenceJobs = implode("%/-\%", $request->ReferenceJobs);
-*/
+            $ReferenceJobs = implode("%/-\%", $request->ReferenciaLaboral);
 
             $Idioma = '';
             $Idioma = implode("%/-\%", $request->Idioma);
@@ -103,11 +102,11 @@ class CurriculumVitaeController extends Controller
             $HojaVida->Database = $Database;
             $HojaVida->ReferenceFamily = $ReferenceFamily;
             $HojaVida->ReferencePerson = $ReferenciaPersonal;
-            // $HojaVida->ReferenceJobs = $ReferenciaPersonal;
+            $HojaVida->ReferenceJobs = $ReferenceJobs;
             $HojaVida->Idioma = $Idioma;
             $HojaVida->save();
 
-            toastr()->success('Se Creo el Fabricante !');
+            toastr()->success('Se Creo la hoja de vida Correctamente !');
             return redirect('CurriculumVitae');
         }
     }
@@ -120,7 +119,6 @@ class CurriculumVitaeController extends Controller
      */
     public function show($id)
     {
-        return view('Cv.show');
     }
 
     /**
@@ -131,7 +129,8 @@ class CurriculumVitaeController extends Controller
      */
     public function edit($id)
     {
-        return view('Cv.edit');
+        $HojaVida = HojaVida::find($id);
+        return view('Cv.edit', compact('HojaVida'));
     }
 
     /**

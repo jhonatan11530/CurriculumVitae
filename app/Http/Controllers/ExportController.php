@@ -28,8 +28,10 @@ class ExportController extends Controller
         $ReferenceJobs = '';
         $ReferenceJobs = explode("%/-\%", $HojaVida->ReferenceJobs);
 
+        $Idioma = '';
+        $Idioma = explode("%/-\%", $HojaVida->Idioma);
 
-        $pdf = PDF::loadView('PlantillaCv.index', compact('HojaVida', 'Habilidades','Database','ReferenceFamily', 'ReferencePerson'));
+        $pdf = PDF::loadView('PlantillaCv.index', compact('HojaVida', 'Habilidades','Database','ReferenceFamily', 'ReferencePerson','ReferenceJobs','Idioma'));
         return $pdf->stream();
     }
     public function PdfExport()

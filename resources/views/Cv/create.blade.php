@@ -285,7 +285,7 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Habilidades Usadas</label><span
                                                     style="color: red">*</span>
-                                                <select name="ReferenciaLaboral[]" id="HabilidadesUsing0"
+                                                <select name="ReferenciaLaboral[]" id="HabilidadesUsing"
                                                     class="form-control js-multiple" multiple required>
                                                     <option value="" disabled>Seleccione el cargo</option>
                                                 </select>
@@ -320,6 +320,7 @@
                                                 <label class="text-white">Nivel Idioma</label>
                                                 <select name="Idioma[]" class="form-control">
                                                     <option value="" selected disabled>Seleccione Idioma</option>
+                                                    <option value="Nativo">Nativo</option>
                                                     <option value="Basico">Basico</option>
                                                     <option value="Intermedio">Intermedio</option>
                                                     <option value="Avanzado">Avanzado</option>
@@ -331,8 +332,12 @@
                                 <div id="Languajes"></div>
                             </div>
                         </div>
+                        <div class="col-sm-12">
                         {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
                         {!! Form::close() !!}
+                        <a href="{{ route('CurriculumVitae.index') }}" class="btn btn-danger">Volver
+                            atraz</a>
+                        </div>
                     </div>
                 </div>
             </div>
