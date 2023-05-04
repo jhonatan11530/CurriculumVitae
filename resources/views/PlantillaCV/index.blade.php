@@ -50,7 +50,7 @@
         <ul>
             @foreach ($ReferenceJobs as $item)
                 <li id="SegundoDato">{{ strtoupper($item) }}</li>
-            @endforeach
+                @endforeach
         </ul>
         <h3>EDUCACIÓN</h3>
         <h3>EDUCACIÓN COMPLEMENTARIA</h3>

@@ -19,14 +19,18 @@
                                 {!! Form::text('Nombre', 'Jhonatan fernandez muñoz', ['class' => 'form-control', 'readonly']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
+                                <label>Identificador</label><span style="color: red">*</span>
+                                {!! Form::number('Identificador', '', ['class' => 'form-control','min'=>0, 'required']) !!}
+                            </div>
+                            <div class="col-sm-4 form-group">
                                 <label>Adjuntar Foto</label><span style="color: red">*</span>
                                 {!! Form::file('Foto', ['class' => 'form-control', 'accept' => 'image/png, image/gif, image/jpeg', 'required']) !!}
                             </div>
-                            <div class="col-sm-6 form-group">
+                            <div class="col-sm-4 form-group">
                                 <label>Fecha de Nacimiento</label><span style="color: red">*</span>
                                 {!! Form::date('DateNacimiento', '', ['class' => 'form-control', 'required']) !!}
                             </div>
-                            <div class="col-sm-6 form-group">
+                            <div class="col-sm-4 form-group">
                                 <label>Cargo Asipirante</label><span style="color: red">*</span>
                                 <select name="Cargo" class="form-control js-multiple" required>
                                     <option value="" disabled>Seleccione el Cargo</option>
@@ -177,21 +181,21 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Nombre Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaPersonal[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('NombreReferenciaPersonal[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Nombre del Cargo Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaPersonal[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('CargoReferenciaPersonal[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Telefono Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::number('ReferenciaPersonal[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                                {!! Form::number('TelReferenciaPersonal[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Pais</label><span style="color: red">*</span>
-                                                <select name="ReferenciaPersonal[]" class="form-control"
+                                                <select name="PaisReferenciaPersonal[]" class="form-control"
                                                     id="ReferencePersonCountry1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
@@ -199,14 +203,14 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Departamento</label><span
                                                     style="color: red">*</span>
-                                                <select name="ReferenciaPersonal[]" class="form-control"
+                                                <select name="DepartamentoReferenciaPersonal[]" class="form-control"
                                                     id="ReferencePersonEstado1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                                <select name="ReferenciaPersonal[]" class="form-control"
+                                                <select name="CiudadReferenciaPersonal[]" class="form-control"
                                                     id="ReferencePersonCiudad1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
@@ -234,26 +238,26 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">nombre empresa</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                                {!! Form::text('NombreReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">fecha ingreso</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::date('FechaEntradaReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">fecha salida</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::date('FechaSalidaReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">cargo en la empresa</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                                {!! Form::text('CargoReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
                                             </div>
                                             <div class="col-sm-3 form-group">
                                                 <label class="text-white">Pais</label><span style="color: red">*</span>
-                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                <select name="PaisReferenciaLaboral[]" class="form-control"
                                                     id="ReferenceJobsCountry1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
@@ -261,31 +265,31 @@
                                             <div class="col-sm-3 form-group">
                                                 <label class="text-white">Departamento</label><span
                                                     style="color: red">*</span>
-                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                <select name="DepartamentoReferenciaLaboral[]" class="form-control"
                                                     id="ReferenceJobsEstado1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-2 form-group">
                                                 <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                <select name="CiudadReferenciaLaboral[]" class="form-control"
                                                     id="ReferenceJobsCiudad1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Tareas</label><span style="color: red">*</span>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('TareasReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Funciones</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('FuncionesReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Habilidades Usadas</label><span
                                                     style="color: red">*</span>
-                                                <select name="ReferenciaLaboral[]" id="HabilidadesUsing"
+                                                <select name="HabilidadesReferenciaLaboral[]" id="HabilidadesUsing"
                                                     class="form-control js-multiple" multiple required>
                                                     <option value="" disabled>Seleccione el cargo</option>
                                                 </select>
@@ -822,56 +826,63 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-12 form-group">
-                                                <h2 class="text-center">EXPERIENCIA #1</h2>
+                                                <h2 class="text-center">EXPERIENCIA #${Jobs}</h2>
                                             </div>
                                             <div class="col-sm-4 form-group">
-                                                <label class="text-white">nombre empresa</label>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                                <label class="text-white">nombre empresa</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::text('NombreReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
-                                                <label class="text-white">fecha ingreso</label>
-                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                <label class="text-white">fecha ingreso</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::date('FechaEntradaReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
-                                                <label class="text-white">fecha salida</label>
-                                                {!! Form::date('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                <label class="text-white">fecha salida</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::date('FechaSalidaReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
-                                                <label class="text-white">cargo en la empresa</label>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                                <label class="text-white">cargo en la empresa</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::text('CargoReferenciaLaboral[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
                                             </div>
                                             <div class="col-sm-3 form-group">
-                                                <label class="text-white">Pais</label>
-                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                <label class="text-white">Pais</label><span style="color: red">*</span>
+                                                <select name="PaisReferenciaLaboral[]" class="form-control"
                                                     id="ReferenceJobsCountry${Jobs}" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-3 form-group">
-                                                <label class="text-white">Departamento</label>
-                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                <label class="text-white">Departamento</label><span
+                                                    style="color: red">*</span>
+                                                <select name="DepartamentoReferenciaLaboral[]" class="form-control"
                                                     id="ReferenceJobsEstado${Jobs}" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-2 form-group">
-                                                <label class="text-white">Ciudad</label>
-                                                <select name="ReferenciaLaboral[]" class="form-control"
+                                                <label class="text-white">Ciudad</label><span style="color: red">*</span>
+                                                <select name="CiudadReferenciaLaboral[]" class="form-control"
                                                     id="ReferenceJobsCiudad${Jobs}" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 form-group">
-                                                <label class="text-white">Tareas</label>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                <label class="text-white">Tareas</label><span style="color: red">*</span>
+                                                {!! Form::text('TareasReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
-                                                <label class="text-white">Funciones</label>
-                                                {!! Form::text('ReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
+                                                <label class="text-white">Funciones</label><span
+                                                    style="color: red">*</span>
+                                                {!! Form::text('FuncionesReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
-                                                <label class="text-white">Habilidades Usadas</label>
-                                                <select name="ReferenciaLaboral[]" id="HabilidadesUsing${Jobs}"
+                                                <label class="text-white">Habilidades Usadas</label><span
+                                                    style="color: red">*</span>
+                                                <select name="HabilidadesReferenciaLaboral[]" id="HabilidadesUsing${Jobs}"
                                                     class="form-control js-multiple" multiple required>
                                                     <option value="" disabled>Seleccione el cargo</option>
                                                 </select>
@@ -914,8 +925,8 @@
                     success: function(response) {
                         $.each(response, function(key, result) {
                             $('#HabilidadesUsing' + Jobs).append($('<option>', {
-                                value: result,
-                                text: result
+                                value: result['nombre'],
+                                text: result['nombre']
                             }));
                         });
                     },

@@ -15,6 +15,7 @@ class CreateHojaVidasTable extends Migration
     {
         Schema::create('hoja_vida', function (Blueprint $table) {
             $table->id();
+            $table->string('Identificador',20);
             $table->string('Nombre', 80)->nullable();
             $table->string('Foto', 100)->nullable();
             $table->string('FechaNacimiento', 100)->nullable();
@@ -26,9 +27,6 @@ class CreateHojaVidasTable extends Migration
             $table->text('PerfilProfesional')->nullable();
             $table->text('Habilidades')->nullable();
             $table->text('Database')->nullable();
-            $table->text('ReferenceFamily')->nullable();
-            $table->text('ReferencePerson')->nullable();
-            $table->text('ReferenceJobs')->nullable();
             $table->text('Idioma')->nullable();
             $table->timestamps();
         });

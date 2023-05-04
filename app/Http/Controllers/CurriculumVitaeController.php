@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Cargos;
 use App\Models\Database;
+use App\Models\ExperienciaLaboral;
 use App\Models\HojaVida;
 use App\Models\languajes;
+use App\Models\ReferenciaFamily;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -76,19 +78,44 @@ class CurriculumVitaeController extends Controller
             $Database = '';
             $Database = implode("%/-\%", $request->Database);
 
-            $ReferenceFamily = '';
-            $ReferenceFamily = implode("%/-\%", $request->ReferenciaFamily);
-
-            $ReferenciaPersonal = '';
-            $ReferenciaPersonal = implode("%/-\%", $request->ReferenciaPersonal);
 
             $ReferenceJobs = '';
-            $ReferenceJobs = implode("%/-\%", $request->ReferenciaLaboral);
+            $ReferenceJobs = implode("%/-\%", $request->HabilidadesReferenciaLaboral);
 
             $Idioma = '';
             $Idioma = implode("%/-\%", $request->Idioma);
 
+            for ($i = 0; $i < count($request->NombreReferenciaLaboral); $i++) {
+                ExperienciaLaboral::create([
+                    'Identificador' => $request->Identificador,
+                    'NombreReferenciaLaboral' => $request->NombreReferenciaLaboral[$i],
+                    'FechaEntradaReferenciaLaboral' => $request->FechaEntradaReferenciaLaboral[$i],
+                    'FechaSalidaReferenciaLaboral' => $request->FechaSalidaReferenciaLaboral[$i],
+                    'CargoReferenciaLaboral' => $request->CargoReferenciaLaboral[$i],
+                    'PaisReferenciaLaboral' => $request->PaisReferenciaLaboral[$i],
+                    'DepartamentoReferenciaLaboral' => $request->DepartamentoReferenciaLaboral[$i],
+                    'CiudadReferenciaLaboral' => $request->CiudadReferenciaLaboral[$i],
+                    'TareasReferenciaLaboral' => $request->TareasReferenciaLaboral[$i],
+                    'FuncionesReferenciaLaboral' => $request->FuncionesReferenciaLaboral[$i],
+                    'HabilidadesReferenciaLaboral' => $ReferenceJobs,
+                ]);
+            }
+
+            for ($i=0; $i < count($request->NombreReferenciaPersonal); $i++) {
+                ReferenciaFamily::create([
+                    'Identificador' => $request->Identificador,
+                    'NombreReferenciaPersonal' => $request->NombreReferenciaPersonal[$i],
+                    'CargoReferenciaPersonal' => $request->CargoReferenciaPersonal[$i],
+                    'TelReferenciaPersonal' => $request->TelReferenciaPersonal[$i],
+                    'PaisReferenciaPersonal' => $request->PaisReferenciaPersonal[$i],
+                    'DepartamentoReferenciaPersonal' => $request->DepartamentoReferenciaPersonal[$i],
+                    'CiudadReferenciaPersonal' => $request->CiudadReferenciaPersonal[$i],
+                ]);
+            }
+
+
             $HojaVida = new HojaVida();
+            $HojaVida->Identificador = $request->Identificador;
             $HojaVida->Nombre = $request->Nombre;
             $HojaVida->Foto = $fotoImagen;
             $HojaVida->Edad = $edad;
@@ -100,9 +127,6 @@ class CurriculumVitaeController extends Controller
             $HojaVida->PerfilProfesional = $request->PerfilProfesional;
             $HojaVida->Habilidades = $Habilidades;
             $HojaVida->Database = $Database;
-            $HojaVida->ReferenceFamily = $ReferenceFamily;
-            $HojaVida->ReferencePerson = $ReferenciaPersonal;
-            $HojaVida->ReferenceJobs = $ReferenceJobs;
             $HojaVida->Idioma = $Idioma;
             $HojaVida->save();
 
