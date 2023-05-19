@@ -23,7 +23,6 @@ class CreateExperencia extends Migration
             $table->text('PaisReferenciaLaboral');
             $table->text('DepartamentoReferenciaLaboral');
             $table->text('CiudadReferenciaLaboral');
-            $table->text('TareasReferenciaLaboral');
             $table->text('FuncionesReferenciaLaboral');
             $table->text('HabilidadesReferenciaLaboral');
             $table->timestamps();

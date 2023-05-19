@@ -19,7 +19,7 @@
                                 {!! Form::text('Nombre', 'Jhonatan fernandez muñoz', ['class' => 'form-control', 'readonly']) !!}
                             </div>
                             <div class="col-sm-6 form-group">
-                                <label>Identificador</label><span style="color: red">*</span>
+                                <label>Identificacion</label><span style="color: red">*</span>
                                 {!! Form::number('Identificador', '', ['class' => 'form-control','min'=>0, 'required']) !!}
                             </div>
                             <div class="col-sm-4 form-group">
@@ -124,21 +124,21 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Nombre Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('NombreReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Nombre del Cargo Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('CargoReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Telefono Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::number('ReferenciaFamily[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                                {!! Form::number('TelReferenciaFamily[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Pais</label><span style="color: red">*</span>
-                                                <select name="ReferenciaFamily[]" class="form-control"
+                                                <select name="PaisReferenciaFamily[]" class="form-control"
                                                     id="ReferenceFamilyCountry1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
@@ -146,14 +146,14 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Departamento</label><span
                                                     style="color: red">*</span>
-                                                <select name="ReferenciaFamily[]" class="form-control"
+                                                <select name="DepartamentoReferenciaFamily[]" class="form-control"
                                                     id="ReferenceFamilyEstado1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                                <select name="ReferenciaFamily[]" class="form-control"
+                                                <select name="CiudadReferenciaFamily[]" class="form-control"
                                                     id="ReferenceFamilyCiudad1" required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
@@ -277,16 +277,12 @@
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-4 form-group">
-                                                <label class="text-white">Tareas</label><span style="color: red">*</span>
-                                                {!! Form::text('TareasReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
-                                            </div>
-                                            <div class="col-sm-4 form-group">
+                                            <div class="col-sm-6 form-group">
                                                 <label class="text-white">Funciones</label><span
                                                     style="color: red">*</span>
                                                 {!! Form::text('FuncionesReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
-                                            <div class="col-sm-4 form-group">
+                                            <div class="col-sm-6 form-group">
                                                 <label class="text-white">Habilidades Usadas</label><span
                                                     style="color: red">*</span>
                                                 <select name="HabilidadesReferenciaLaboral[]" id="HabilidadesUsing"
@@ -498,21 +494,21 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Nombre Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('NombreReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Nombre del Cargo Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::text('ReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
+                                                {!! Form::text('CargoReferenciaFamily[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Telefono Referencia</label><span
                                                     style="color: red">*</span>
-                                                {!! Form::number('ReferenciaFamily[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
+                                                {!! Form::number('TelReferenciaFamily[]', '', ['class' => 'form-control', 'min' => '0', 'required']) !!}
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Pais</label><span style="color: red">*</span>
-                                                <select name="ReferenciaFamily[]" class="form-control" id="ReferenceFamilyCountry${ReferenceFamily}"
+                                                <select name="PaisReferenciaFamily[]" class="form-control" id="ReferenceFamilyCountry${ReferenceFamily}"
                                                     required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
@@ -520,14 +516,14 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Departamento</label><span
                                                     style="color: red">*</span>
-                                                <select name="ReferenciaFamily[]" class="form-control" id="ReferenceFamilyEstado${ReferenceFamily}"
+                                                <select name="DepartamentoReferenciaFamily[]" class="form-control" id="ReferenceFamilyEstado${ReferenceFamily}"
                                                     required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-4 form-group">
                                                 <label class="text-white">Ciudad</label><span style="color: red">*</span>
-                                                <select name="ReferenciaFamily[]" class="form-control" id="ReferenceFamilyCiudad${ReferenceFamily}"
+                                                <select name="CiudadReferenciaFamily[]" class="form-control" id="ReferenceFamilyCiudad${ReferenceFamily}"
                                                     required>
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
@@ -870,16 +866,12 @@
                                                     <option value="" selected disabled>Seleccione el cargo</option>
                                                 </select>
                                             </div>
-                                            <div class="col-sm-4 form-group">
-                                                <label class="text-white">Tareas</label><span style="color: red">*</span>
-                                                {!! Form::text('TareasReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
-                                            </div>
-                                            <div class="col-sm-4 form-group">
+                                            <div class="col-sm-6 form-group">
                                                 <label class="text-white">Funciones</label><span
                                                     style="color: red">*</span>
                                                 {!! Form::text('FuncionesReferenciaLaboral[]', '', ['class' => 'form-control', 'required']) !!}
                                             </div>
-                                            <div class="col-sm-4 form-group">
+                                            <div class="col-sm-6 form-group">
                                                 <label class="text-white">Habilidades Usadas</label><span
                                                     style="color: red">*</span>
                                                 <select name="HabilidadesReferenciaLaboral[]" id="HabilidadesUsing${Jobs}"

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExperienciaLaboral extends Model
 {
-    protected $table = 'experiencia';
+    protected $table = 'hoja_vida_experiencia';
     protected $fillable = [
         'Identificador',
         'NombreReferenciaLaboral',
@@ -16,7 +16,6 @@ class ExperienciaLaboral extends Model
         'PaisReferenciaLaboral',
         'DepartamentoReferenciaLaboral',
         'CiudadReferenciaLaboral',
-        'TareasReferenciaLaboral',
         'FuncionesReferenciaLaboral',
         'HabilidadesReferenciaLaboral',
     ];

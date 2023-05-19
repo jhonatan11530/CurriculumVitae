@@ -8,6 +8,7 @@ use App\Models\ExperienciaLaboral;
 use App\Models\HojaVida;
 use App\Models\languajes;
 use App\Models\ReferenciaFamily;
+use App\Models\ReferenciaJobs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -78,7 +79,6 @@ class CurriculumVitaeController extends Controller
             $Database = '';
             $Database = implode("%/-\%", $request->Database);
 
-
             $ReferenceJobs = '';
             $ReferenceJobs = implode("%/-\%", $request->HabilidadesReferenciaLaboral);
 
@@ -95,21 +95,32 @@ class CurriculumVitaeController extends Controller
                     'PaisReferenciaLaboral' => $request->PaisReferenciaLaboral[$i],
                     'DepartamentoReferenciaLaboral' => $request->DepartamentoReferenciaLaboral[$i],
                     'CiudadReferenciaLaboral' => $request->CiudadReferenciaLaboral[$i],
-                    'TareasReferenciaLaboral' => $request->TareasReferenciaLaboral[$i],
                     'FuncionesReferenciaLaboral' => $request->FuncionesReferenciaLaboral[$i],
                     'HabilidadesReferenciaLaboral' => $ReferenceJobs,
                 ]);
             }
 
-            for ($i=0; $i < count($request->NombreReferenciaPersonal); $i++) {
+            for ($i=0; $i < count($request->ReferenciaFamily); $i++) {
                 ReferenciaFamily::create([
                     'Identificador' => $request->Identificador,
-                    'NombreReferenciaPersonal' => $request->NombreReferenciaPersonal[$i],
-                    'CargoReferenciaPersonal' => $request->CargoReferenciaPersonal[$i],
-                    'TelReferenciaPersonal' => $request->TelReferenciaPersonal[$i],
-                    'PaisReferenciaPersonal' => $request->PaisReferenciaPersonal[$i],
-                    'DepartamentoReferenciaPersonal' => $request->DepartamentoReferenciaPersonal[$i],
-                    'CiudadReferenciaPersonal' => $request->CiudadReferenciaPersonal[$i],
+                    'NombreReferenciaPersonal' => $request->NombreReferenciaFamily[$i],
+                    'CargoReferenciaPersonal' => $request->CargoReferenciaFamily[$i],
+                    'TelReferenciaPersonal' => $request->TelReferenciaFamily[$i],
+                    'PaisReferenciaPersonal' => $request->PaisReferenciaFamily[$i],
+                    'DepartamentoReferenciaPersonal' => $request->DepartamentoReferenciaFamily[$i],
+                    'CiudadReferenciaPersonal' => $request->CiudadReferenciaFamily[$i],
+                ]);
+            }
+
+            for ($i=0; $i < count($request->NombreReferenciaPersonal); $i++) {
+                ReferenciaJobs::create([
+                    'Identificador' => $request->Identificador,
+                    'NombreReferenciaJobs' => $request->NombreReferenciaPersonal[$i],
+                    'CargoReferenciaJobs' => $request->CargoReferenciaPersonal[$i],
+                    'TelReferenciaJobs' => $request->TelReferenciaPersonal[$i],
+                    'PaisReferenciaJobs' => $request->PaisReferenciaPersonal[$i],
+                    'DepartamentoReferenciaJobs' => $request->DepartamentoReferenciaPersonal[$i],
+                    'CiudadReferenciaJobs' => $request->CiudadReferenciaPersonal[$i],
                 ]);
             }
 
