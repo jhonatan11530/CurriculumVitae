@@ -47,13 +47,25 @@
 <body>
     <div class="container2">
         <h3>EXPERIENCIA PROFESIONAL</h3>
-        <ul>
-            @foreach ($ReferenceJobs as $item)
-                <li id="SegundoDato">{{ strtoupper($item) }}</li>
-                @endforeach
-        </ul>
+        <p>{{ $HojaVida->PerfilProfesional }}</p>
         <h3>EDUCACIÓN</h3>
+        <ul>
+            @foreach ($Estudio as $item)
+                <li>
+                    <h2>{{ strtoupper($item->NombreTitulo) }}</h2><br>
+                    <h4>{{ strtoupper($item->Institucion) }} {{ strtoupper($item->Fecha) }}</h4><br>
+                </li>
+            @endforeach
+        </ul>
         <h3>EDUCACIÓN COMPLEMENTARIA</h3>
+        <ul>
+            @foreach ($Complementario as $item)
+                <li>
+                    <h2>{{ strtoupper($item->NombreTitulo) }}</h2><br>
+                    <h4>{{ strtoupper($item->Institucion) }} {{ strtoupper($item->Fecha) }}</h4><br>
+                </li>
+            @endforeach
+        </ul>
     </div>
     <div class="container">
         <div class="imagen_foto">
@@ -83,14 +95,18 @@
         </ul>
         <h3>REFERENCIA FAMILIAR</h3>
         <ul>
-            @foreach ($ReferenceFamily as $item)
-                <li id="PrimerDato">{{ strtoupper($item) }}</li>
+            @foreach ($Family as $item)
+                <li id="PrimerDato">{{ strtoupper($item->NombreReferenciaPersonal) }} <br>
+                    {{ strtoupper($item->CargoReferenciaPersonal) }} <br>
+                    {{ strtoupper($item->TelReferenciaPersonal) }}</li>
             @endforeach
         </ul>
         <h3>REFERENCIA PERSONAL</h3>
         <ul>
-            @foreach ($ReferencePerson as $item)
-                <li id="PrimerDato">{{ strtoupper($item) }}</li>
+            @foreach ($Jobs as $item)
+                <li id="PrimerDato">{{ strtoupper($item->NombreReferenciaJobs) }} <br>
+                    {{ strtoupper($item->CargoReferenciaJobs) }} <br>
+                    {{ strtoupper($item->TelReferenciaJobs) }}</li>
             @endforeach
         </ul>
         <h3>IDIOMAS</h3>
@@ -100,7 +116,6 @@
             @endforeach
         </ul>
     </div>
-
 </body>
 
 </html>

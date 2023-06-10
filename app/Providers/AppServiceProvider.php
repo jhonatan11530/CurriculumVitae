@@ -25,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Artisan::call('project:init');
+        if (!File::exists(base_path('.env'))) {
+            File::copy(base_path('.env.example'), base_path('.env'));
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\languajes;
+use App\Models\Languajes;
 use App\Models\Idiomas;
 
 use App\Http\Resources\ApiCityCountry;

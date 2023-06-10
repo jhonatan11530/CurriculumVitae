@@ -1,4 +1,4 @@
-@extends('Layout/PLantilla')
+@extends('Layout/Plantilla')
 @section('banner')
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
         <div>

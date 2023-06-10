@@ -100,7 +100,7 @@ class CurriculumVitaeController extends Controller
                 ]);
             }
 
-            for ($i=0; $i < count($request->ReferenciaFamily); $i++) {
+            for ($i=0; $i < count($request->NombreReferenciaFamily); $i++) {
                 ReferenciaFamily::create([
                     'Identificador' => $request->Identificador,
                     'NombreReferenciaPersonal' => $request->NombreReferenciaFamily[$i],

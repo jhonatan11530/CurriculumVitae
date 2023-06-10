@@ -66,6 +66,11 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="{{ url('SoporteEstudioComplemento') }}">
+                                            <span class="sub-item">Carta de presentacion</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ url('SoporteEstudio') }}">
                                             <span class="sub-item">Adjunto Soportes Estudios</span>
                                         </a>
